@@ -566,6 +566,13 @@ async function executeAction(action, params = {}, refMap = {}) {
       };
     }
 
+    case 'ZOOM_TO_FIT': {
+      if (figma.currentPage.children.length > 0) {
+        figma.viewport.scrollAndZoomIntoView(figma.currentPage.children);
+      }
+      return { status: 'zoomed', count: figma.currentPage.children.length };
+    }
+
     case 'CLEAR_PAGE': {
       const count = figma.currentPage.children.length;
       while (figma.currentPage.children.length > 0) {

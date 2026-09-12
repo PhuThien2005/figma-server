@@ -221,6 +221,10 @@ export class MockFigmaPlugin {
         };
       }
 
+      case 'ZOOM_TO_FIT': {
+        return { status: 'zoomed', count: this.virtualCanvas.nodes.size };
+      }
+
       case 'CLEAR_PAGE': {
         const count = this.virtualCanvas.nodes.size;
         this.virtualCanvas.nodes.clear();
