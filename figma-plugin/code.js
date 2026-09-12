@@ -64,6 +64,22 @@ function resolveNodeId(idOrRef, refMap) {
   return idOrRef;
 }
 
+// Safe async node getter (compatible with dynamic-page mode)
+async function getNode(id) {
+  if (!id) return null;
+  if ('getNodeByIdAsync' in figma) {
+    try {
+      const n = await figma.getNodeByIdAsync(id);
+      if (n) return n;
+    } catch (e) {}
+  }
+  try {
+    return figma.getNodeById(id);
+  } catch (e) {
+    return null;
+  }
+}
+
 // Safe image fill loader
 async function applyImageFill(node, imageUrl, fallbackColor = null) {
   if (imageUrl) {
@@ -177,7 +193,7 @@ async function executeAction(action, params = {}, refMap = {}) {
       // Parent attachment
       const parentId = resolveNodeId(params.parentId, refMap);
       if (parentId) {
-        const parentNode = figma.getNodeById(parentId);
+        const parentNode = await getNode(parentId);
         if (parentNode && 'appendChild' in parentNode) {
           parentNode.appendChild(frame);
         } else {
@@ -221,7 +237,7 @@ async function executeAction(action, params = {}, refMap = {}) {
 
       const parentId = resolveNodeId(params.parentId, refMap);
       if (parentId) {
-        const parentNode = figma.getNodeById(parentId);
+        const parentNode = await getNode(parentId);
         if (parentNode && 'appendChild' in parentNode) {
           parentNode.appendChild(textNode);
         } else {
@@ -271,7 +287,7 @@ async function executeAction(action, params = {}, refMap = {}) {
 
       const parentId = resolveNodeId(params.parentId, refMap);
       if (parentId) {
-        const parentNode = figma.getNodeById(parentId);
+        const parentNode = await getNode(parentId);
         if (parentNode && 'appendChild' in parentNode) {
           parentNode.appendChild(btn);
         } else {
@@ -299,7 +315,7 @@ async function executeAction(action, params = {}, refMap = {}) {
 
       const parentId = resolveNodeId(params.parentId, refMap);
       if (parentId) {
-        const parentNode = figma.getNodeById(parentId);
+        const parentNode = await getNode(parentId);
         if (parentNode && 'appendChild' in parentNode) {
           parentNode.appendChild(rect);
         } else {
@@ -312,9 +328,55 @@ async function executeAction(action, params = {}, refMap = {}) {
       return { id: rect.id, name: rect.name, type: rect.type };
     }
 
+    case 'CREATE_COMPONENT': {
+      const comp = figma.createComponent();
+      comp.name = params.name || 'Component';
+      const width = params.width || 345;
+      const height = params.height || 100;
+      comp.resize(width, height);
+      if (params.x !== undefined && params.y !== undefined) {
+        comp.x = params.x;
+        comp.y = params.y;
+      }
+      await applyImageFill(comp, params.imageUrl, params.backgroundColor);
+      if (params.cornerRadius !== undefined) comp.cornerRadius = params.cornerRadius;
+      if (params.layoutMode) {
+        comp.layoutMode = params.layoutMode.toUpperCase();
+        if (params.padding !== undefined) {
+          comp.paddingLeft = params.padding;
+          comp.paddingRight = params.padding;
+          comp.paddingTop = params.padding;
+          comp.paddingBottom = params.padding;
+        }
+        if (params.paddingX !== undefined) {
+          comp.paddingLeft = params.paddingX;
+          comp.paddingRight = params.paddingX;
+        }
+        if (params.paddingY !== undefined) {
+          comp.paddingTop = params.paddingY;
+          comp.paddingBottom = params.paddingY;
+        }
+        if (params.itemSpacing !== undefined) comp.itemSpacing = params.itemSpacing;
+        if (params.primaryAxisAlignItems) comp.primaryAxisAlignItems = params.primaryAxisAlignItems;
+        if (params.counterAxisAlignItems) comp.counterAxisAlignItems = params.counterAxisAlignItems;
+      }
+      const parentId = resolveNodeId(params.parentId, refMap);
+      if (parentId) {
+        const parentNode = await getNode(parentId);
+        if (parentNode && 'appendChild' in parentNode) {
+          parentNode.appendChild(comp);
+        } else {
+          figma.currentPage.appendChild(comp);
+        }
+      } else {
+        figma.currentPage.appendChild(comp);
+      }
+      return { id: comp.id, name: comp.name, type: comp.type };
+    }
+
     case 'UPDATE_PROPERTIES': {
       const targetId = resolveNodeId(params.nodeId, refMap);
-      const node = figma.getNodeById(targetId);
+      const node = await getNode(targetId);
       if (!node) throw new Error(`Node not found with ID: ${targetId}`);
 
       if (params.name) node.name = params.name;
@@ -343,7 +405,7 @@ async function executeAction(action, params = {}, refMap = {}) {
 
     case 'CREATE_FLOW': {
       const targetFrameId = resolveNodeId(params.frameId, refMap);
-      const startFrame = figma.getNodeById(targetFrameId);
+      const startFrame = await getNode(targetFrameId);
       if (!startFrame) {
         throw new Error(`Target frame not found for flow starting point: ${targetFrameId}`);
       }
@@ -368,8 +430,8 @@ async function executeAction(action, params = {}, refMap = {}) {
       const sourceId = resolveNodeId(params.sourceNodeId, refMap);
       const targetId = resolveNodeId(params.targetNodeId, refMap);
 
-      const sourceNode = figma.getNodeById(sourceId);
-      const targetNode = figma.getNodeById(targetId);
+      const sourceNode = await getNode(sourceId);
+      const targetNode = await getNode(targetId);
 
       if (!sourceNode) throw new Error(`Source node not found: ${sourceId}`);
       if (!targetNode) throw new Error(`Target node not found: ${targetId}`);
@@ -450,6 +512,35 @@ async function executeAction(action, params = {}, refMap = {}) {
       }
 
       return { status: 'batch_completed', stepsCount: steps.length, results, refMap: batchRefMap };
+    }
+
+    case 'EXPORT_FRAME': {
+      const targetId = resolveNodeId(params.nodeId, refMap);
+      let target = targetId ? await getNode(targetId) : null;
+      if (!target && figma.currentPage.selection.length > 0) {
+        target = figma.currentPage.selection[0];
+      }
+      if (!target && figma.currentPage.children.length > 0) {
+        target = figma.currentPage.children[0];
+      }
+      if (!target) throw new Error('No element found to export');
+      const scale = params.scale || 1;
+      const bytes = await target.exportAsync({
+        format: 'PNG',
+        constraint: { type: 'SCALE', value: scale }
+      });
+      let binary = '';
+      const len = bytes.byteLength;
+      for (let j = 0; j < len; j++) {
+        binary += String.fromCharCode(bytes[j]);
+      }
+      return {
+        nodeId: target.id,
+        name: target.name,
+        width: target.width,
+        height: target.height,
+        base64: btoa(binary)
+      };
     }
 
     case 'CLEAR_PAGE': {

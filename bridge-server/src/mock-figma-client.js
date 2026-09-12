@@ -150,6 +150,19 @@ export class MockFigmaPlugin {
         return { id, name: node.name, type: node.type };
       }
 
+      case 'CREATE_COMPONENT': {
+        const id = genId();
+        const node = {
+          id,
+          type: 'COMPONENT',
+          name: params.name || 'Component',
+          width: params.width || 345,
+          height: params.height || 100
+        };
+        this.virtualCanvas.nodes.set(id, node);
+        return { id, name: node.name, type: node.type };
+      }
+
       case 'CREATE_FLOW': {
         const frame = this.virtualCanvas.nodes.get(params.frameId);
         if (!frame) throw new Error(`Target frame not found: ${params.frameId}`);
@@ -196,6 +209,16 @@ export class MockFigmaPlugin {
         }
 
         return { status: 'batch_completed', stepsCount: steps.length, results, refMap };
+      }
+
+      case 'EXPORT_FRAME': {
+        return {
+          nodeId: 'mock-1',
+          name: 'Exported Frame',
+          width: 393,
+          height: 852,
+          base64: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='
+        };
       }
 
       case 'CLEAR_PAGE': {

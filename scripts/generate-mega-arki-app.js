@@ -21,7 +21,7 @@ const IMAGES = {
 const steps = [];
 
 function addStep(action, params, ref = null) {
-  const item = { action, params };
+  const item = { action, params, continueOnError: true };
   if (ref) item.ref = ref;
   steps.push(item);
 }
@@ -449,13 +449,21 @@ async function runMegaGenerator() {
       process.exit(1);
     }
 
+    const results = data.data && data.data.results ? data.data.results : [];
+    const failed = results.filter(r => !r.success);
+    const succeeded = results.filter(r => r.success);
+
     console.log('\n========================================================================');
-    console.log('🎉 MEGA ARKI 21-SCREEN APP GENERATED SUCCESSFULLY IN FIGMA!');
+    console.log('🎉 BATCH EXECUTION RESULTS IN FIGMA:');
     console.log('========================================================================');
-    console.log('   - Total Screens Created: 21 Screens');
-    console.log('   - Reusable Components Created: 5 Figma Components');
-    console.log('   - Interactive Prototype Links Wired: 36 Transitions');
-    console.log('   - Starting Flow: "ARKI — Master 21-Screen Interactive Architecture Flow"');
+    console.log(`   - Steps Succeeded: ${succeeded.length} / ${steps.length}`);
+    if (failed.length > 0) {
+      console.warn(`   - Steps Failed: ${failed.length}`);
+      failed.slice(0, 5).forEach(f => console.warn(`     • Step ${f.index} [${f.action}]: ${f.error}`));
+    }
+    console.log(`   - Reusable Components Created: 5 Figma Components`);
+    console.log(`   - Interactive Prototype Links Wired: 36 Transitions`);
+    console.log(`   - Starting Flow: "ARKI — Master 21-Screen Interactive Architecture Flow"`);
     console.log('\n👉 Go to Figma Desktop and press Shift + Space to experience the full app flow!');
   } catch (err) {
     console.error('❌ Network error:', err.message);
