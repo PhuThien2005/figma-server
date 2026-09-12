@@ -421,6 +421,9 @@ async function executeAction(action, params = {}, refMap = {}) {
       if (params.color && 'fills' in node) {
         node.fills = [{ type: 'SOLID', color: parseColor(params.color) }];
       }
+      if (params.imageUrl && 'fills' in node) {
+        await applyImageFill(node, params.imageUrl, params.color);
+      }
       if (params.cornerRadius !== undefined && 'cornerRadius' in node) {
         node.cornerRadius = params.cornerRadius;
       }
