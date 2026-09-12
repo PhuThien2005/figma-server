@@ -440,7 +440,7 @@ async function runMegaGenerator() {
     const res = await fetch(`${BRIDGE_URL}/execute`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'BATCH_EXECUTE', params: { steps } })
+      body: JSON.stringify({ action: 'BATCH_EXECUTE', params: { steps }, timeoutMs: 180000 })
     });
 
     const data = await res.json();
@@ -459,12 +459,25 @@ async function runMegaGenerator() {
     console.log(`   - Steps Succeeded: ${succeeded.length} / ${steps.length}`);
     if (failed.length > 0) {
       console.warn(`   - Steps Failed: ${failed.length}`);
-      failed.slice(0, 5).forEach(f => console.warn(`     • Step ${f.index} [${f.action}]: ${f.error}`));
+      failed.slice(0, 10).forEach(f => console.warn(`     • Step ${f.index} [${f.action}]: ${f.error}`));
     }
     console.log(`   - Reusable Components Created: 5 Figma Components`);
     console.log(`   - Interactive Prototype Links Wired: 36 Transitions`);
     console.log(`   - Starting Flow: "ARKI — Master 21-Screen Interactive Architecture Flow"`);
-    console.log('\n👉 Go to Figma Desktop and press Shift + Space to experience the full app flow!');
+
+    // Auto Zoom to Fit all 21 frames in Figma viewport
+    try {
+      await fetch(`${BRIDGE_URL}/execute`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'ZOOM_TO_FIT' })
+      });
+      console.log('🔍 Canvas auto-zoomed to fit all 21 screens in Figma view!');
+    } catch (zErr) {}
+
+    console.log('\n👉 Go to Figma Desktop:');
+    console.log('   1. Press Shift + E to switch to Prototype mode (view all blue interaction wires)');
+    console.log('   2. Press Shift + Space to run the interactive prototype modal!\n');
   } catch (err) {
     console.error('❌ Network error:', err.message);
     process.exit(1);

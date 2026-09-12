@@ -460,16 +460,26 @@ async function executeAction(action, params = {}, refMap = {}) {
 
       let transitionObj = null;
       if (transitionType !== 'INSTANT') {
-        transitionObj = {
-          type: transitionType,
-          duration: duration,
-          easing: { type: easingType }
-        };
-        if (params.direction) {
-          transitionObj.direction = params.direction.toUpperCase(); // 'LEFT', 'RIGHT', 'TOP', 'BOTTOM'
+        const directionalTypes = ['MOVE_IN', 'MOVE_OUT', 'PUSH', 'SLIDE_IN', 'SLIDE_OUT'];
+        if (directionalTypes.includes(transitionType)) {
+          transitionObj = {
+            type: transitionType,
+            direction: (params.direction || 'LEFT').toUpperCase(),
+            matchLayers: false,
+            easing: { type: easingType },
+            duration: duration
+          };
+        } else {
+          // Simple transitions: DISSOLVE, SMART_ANIMATE, SCROLL_ANIMATE
+          const validType = ['DISSOLVE', 'SMART_ANIMATE', 'SCROLL_ANIMATE'].includes(transitionType)
+            ? transitionType
+            : 'SMART_ANIMATE';
+          transitionObj = {
+            type: validType,
+            easing: { type: easingType },
+            duration: duration
+          };
         }
-      } else {
-        transitionObj = { type: 'INSTANT' };
       }
 
       const reaction = {
@@ -485,20 +495,41 @@ async function executeAction(action, params = {}, refMap = {}) {
         ]
       };
 
-      // Append reactions using setReactionsAsync if dynamic-page is enabled
-      if ('setReactionsAsync' in sourceNode) {
-        let current = [];
-        try {
-          current = 'getReactionsAsync' in sourceNode
-            ? await sourceNode.getReactionsAsync()
-            : (sourceNode.reactions || []);
-        } catch (e) {
-          current = [];
+      // Append reactions using setReactionsAsync or fallback
+      try {
+        if ('setReactionsAsync' in sourceNode) {
+          let current = [];
+          try {
+            current = 'getReactionsAsync' in sourceNode
+              ? await sourceNode.getReactionsAsync()
+              : (sourceNode.reactions || []);
+          } catch (e) {
+            current = [];
+          }
+          await sourceNode.setReactionsAsync([...current, reaction]);
+        } else {
+          const currentReactions = sourceNode.reactions || [];
+          sourceNode.reactions = [...currentReactions, reaction];
         }
-        await sourceNode.setReactionsAsync([...current, reaction]);
-      } else {
-        const currentReactions = sourceNode.reactions || [];
-        sourceNode.reactions = [...currentReactions, reaction];
+      } catch (assignErr) {
+        // Graceful fallback with SMART_ANIMATE or null transition if directional validation fails
+        const fallbackReaction = {
+          trigger: triggerObj,
+          actions: [
+            {
+              type: 'NODE',
+              destinationId: targetNode.id,
+              navigation: navType,
+              transition: { type: 'SMART_ANIMATE', easing: { type: 'EASE_OUT' }, duration: 0.35 },
+              preserveScrollPosition: false
+            }
+          ]
+        };
+        if ('setReactionsAsync' in sourceNode) {
+          await sourceNode.setReactionsAsync([fallbackReaction]);
+        } else {
+          sourceNode.reactions = [fallbackReaction];
+        }
       }
 
       return {

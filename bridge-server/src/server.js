@@ -61,7 +61,7 @@ wss.on('connection', (ws, req) => {
 });
 
 // Helper to send command to Figma and wait for response
-function sendToFigma(action, params = {}, timeoutMs = 15000) {
+function sendToFigma(action, params = {}, timeoutMs = 60000) {
   return new Promise((resolve, reject) => {
     if (!activeFigmaSocket || activeFigmaSocket.readyState !== WebSocket.OPEN) {
       return reject(new Error('Figma Plugin is not connected. Please open Figma Desktop and run the AGY Figma Bridge plugin.'));
@@ -105,13 +105,15 @@ app.get('/status', (req, res) => {
 });
 
 app.post('/execute', async (req, res) => {
-  const { action, params } = req.body;
+  const { action, params, timeoutMs } = req.body;
   if (!action) {
     return res.status(400).json({ error: 'Missing required field: action' });
   }
 
+  const effectiveTimeout = timeoutMs || (action === 'BATCH_EXECUTE' ? 180000 : 60000);
+
   try {
-    const result = await sendToFigma(action, params || {});
+    const result = await sendToFigma(action, params || {}, effectiveTimeout);
     if (result.status === 'error') {
       return res.status(500).json({ success: false, error: result.error });
     }
@@ -123,13 +125,15 @@ app.post('/execute', async (req, res) => {
 });
 
 app.post('/batch', async (req, res) => {
-  const { steps } = req.body;
+  const { steps, timeoutMs } = req.body;
   if (!Array.isArray(steps)) {
     return res.status(400).json({ error: 'steps must be an array of actions' });
   }
 
+  const effectiveTimeout = timeoutMs || 180000;
+
   try {
-    const result = await sendToFigma('BATCH_EXECUTE', { steps });
+    const result = await sendToFigma('BATCH_EXECUTE', { steps }, effectiveTimeout);
     return res.json({ success: true, data: result.data });
   } catch (err) {
     const status = err.message.includes('not connected') ? 503 : 500;
