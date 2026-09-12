@@ -125,11 +125,114 @@ async function applyImageFill(node, imageUrl, fallbackColor = null) {
   }
 }
 
+// Helper to decode Base64 to Uint8Array safely inside Figma Sandbox
+function base64ToBytes(base64) {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+  let bufferLength = base64.length * 0.75,
+      len = base64.length, i, p = 0,
+      encoded1, encoded2, encoded3, encoded4;
+
+  if (base64[base64.length - 1] === '=') {
+    bufferLength--;
+    if (base64[base64.length - 2] === '=') bufferLength--;
+  }
+
+  const arraybuffer = new ArrayBuffer(bufferLength),
+        bytes = new Uint8Array(arraybuffer);
+
+  for (i = 0; i < len; i += 4) {
+    encoded1 = chars.indexOf(base64[i]);
+    encoded2 = chars.indexOf(base64[i+1]);
+    encoded3 = chars.indexOf(base64[i+2]);
+    encoded4 = chars.indexOf(base64[i+3]);
+
+    bytes[p++] = (encoded1 << 2) | (encoded2 >> 4);
+    if (encoded3 !== -1) bytes[p++] = ((encoded2 & 15) << 4) | (encoded3 >> 2);
+    if (encoded4 !== -1) bytes[p++] = ((encoded3 & 3) << 6) | (encoded4 & 63);
+  }
+
+  return bytes;
+}
+
 // Core action executor
 async function executeAction(action, params = {}, refMap = {}) {
   switch (action) {
     case 'PING': {
       return { status: 'pong', time: Date.now() };
+    }
+
+    case 'CHECK_CAPABILITIES': {
+      return {
+        hasCreateVideoAsync: 'createVideoAsync' in figma,
+        hasCreateImage: 'createImage' in figma,
+        hasCreateImageAsync: 'createImageAsync' in figma,
+        editorType: figma.editorType
+      };
+    }
+
+    case 'INSERT_VIDEO': {
+      const targetId = resolveNodeId(params.nodeId || params.targetNodeName, refMap);
+      const node = await getNode(targetId);
+      if (!node) throw new Error(`Target node not found for video: ${targetId}`);
+
+      if (!('createVideoAsync' in figma)) {
+        throw new Error('figma.createVideoAsync is not supported in this Figma environment');
+      }
+
+      let bytes;
+      if (params.videoBytes && Array.isArray(params.videoBytes)) {
+        bytes = new Uint8Array(params.videoBytes);
+      } else if (params.videoBase64) {
+        bytes = base64ToBytes(params.videoBase64);
+      } else {
+        throw new Error('No videoBytes or videoBase64 provided');
+      }
+
+      try {
+        logToUI(`Uploading video (${bytes.length} bytes) to Figma canvas...`, 'info');
+        const video = await figma.createVideoAsync(bytes);
+        if (video && video.hash) {
+          node.fills = [{
+            type: 'VIDEO',
+            scaleMode: params.scaleMode || 'FILL',
+            videoHash: video.hash
+          }];
+          logToUI(`Video fill applied successfully to ${node.name}!`, 'success');
+          return { status: 'video_inserted', nodeId: node.id, videoHash: video.hash };
+        }
+      } catch (err) {
+        logToUI(`Figma Video Error: ${err.message}`, 'error');
+        throw new Error(`Figma Video Error: ${err.message}`);
+      }
+    }
+
+    case 'INSERT_IMAGE': {
+      const targetId = resolveNodeId(params.nodeId || params.targetNodeName, refMap);
+      const node = await getNode(targetId);
+      if (!node) throw new Error(`Target node not found for image: ${targetId}`);
+
+      if (params.imageBytes && Array.isArray(params.imageBytes)) {
+        const image = figma.createImage(new Uint8Array(params.imageBytes));
+        node.fills = [{
+          type: 'IMAGE',
+          scaleMode: params.scaleMode || 'FILL',
+          imageHash: image.hash
+        }];
+        return { status: 'image_inserted', nodeId: node.id, imageHash: image.hash };
+      } else if (params.imageBase64) {
+        const bytes = base64ToBytes(params.imageBase64);
+        const image = figma.createImage(bytes);
+        node.fills = [{
+          type: 'IMAGE',
+          scaleMode: params.scaleMode || 'FILL',
+          imageHash: image.hash
+        }];
+        return { status: 'image_inserted', nodeId: node.id, imageHash: image.hash };
+      } else if (params.imageUrl) {
+        await applyImageFill(node, params.imageUrl, params.fallbackColor);
+        return { status: 'image_applied', nodeId: node.id };
+      }
+      throw new Error('No imageBytes, imageBase64 or imageUrl provided');
     }
 
     case 'GET_SELECTION': {
