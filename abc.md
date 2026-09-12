@@ -123,6 +123,9 @@ Toàn bộ 104 màn hình được trang bị đầy đủ **Status Bar chân th
 
 ## 🎬 3. Đặc Tả Trình Chiếu 4K Flythrough & 3D Matterport VR Hotspot
 
+> [!TIP] **Nạp Ảnh Thật 100% Cho Cả 2 Giao Diện Sáng (Light) & Tối (Dark)**:
+> Hệ thống sử dụng cơ chế nạp buffer nhị phân thông qua hàm `figma.createImage(bytes)`. Tổng cộng **114 vị trí ảnh và khung hình kiến trúc thật** (57 container ở Light Theme + 57 container ở Dark Theme) đã được phủ ảnh nhiếp ảnh kiến trúc độ phân giải cao từ Unsplash (biệt thự hồ bơi vô cực, mặt tiền kính & bê tông, phòng khách thông tầng, bếp đảo Calacatta, vân đá Travertine, gỗ Shou Sugi Ban, bản đồ vệ tinh và chân dung KTS Pritzker).
+
 ### 3.1. Video Tour Flythrough 4K HDR (`ARKI / 12 - Video Tour Player`)
 - **Quỹ đạo máy bay Drone**:
   - Giai đoạn 1 (00:00 - 01:15): Bắt đầu từ biển Đông ở độ cao 150m, lướt sát mặt sóng tiến vào mỏm đá nhô của bán đảo Sơn Trà.
