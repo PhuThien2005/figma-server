@@ -411,18 +411,29 @@ async function executeAction(action, params = {}, refMap = {}) {
       }
 
       const flowName = params.flowName || 'User Flow';
-      // Filter out existing flow on same node if any
-      const existingFlows = figma.currentPage.flowStartingPoints.filter(f => f.nodeId !== startFrame.id);
-      figma.currentPage.flowStartingPoints = [
-        ...existingFlows,
-        { nodeId: startFrame.id, name: flowName }
-      ];
+      const flowItem = { nodeId: startFrame.id, name: flowName };
+
+      if ('setFlowStartingPointsAsync' in figma.currentPage) {
+        try {
+          const existing = 'getFlowStartingPointsAsync' in figma.currentPage
+            ? await figma.currentPage.getFlowStartingPointsAsync()
+            : (figma.currentPage.flowStartingPoints || []);
+          const filtered = existing.filter(f => f.nodeId !== startFrame.id);
+          await figma.currentPage.setFlowStartingPointsAsync([...filtered, flowItem]);
+        } catch (e) {
+          try {
+            await figma.currentPage.setFlowStartingPointsAsync([flowItem]);
+          } catch (err2) {}
+        }
+      } else {
+        const existingFlows = (figma.currentPage.flowStartingPoints || []).filter(f => f.nodeId !== startFrame.id);
+        figma.currentPage.flowStartingPoints = [...existingFlows, flowItem];
+      }
 
       return {
         status: 'flow_created',
         frameId: startFrame.id,
-        flowName: flowName,
-        totalFlows: figma.currentPage.flowStartingPoints.length
+        flowName: flowName
       };
     }
 
@@ -474,9 +485,21 @@ async function executeAction(action, params = {}, refMap = {}) {
         ]
       };
 
-      // Append or replace reactions
-      const currentReactions = sourceNode.reactions || [];
-      sourceNode.reactions = [...currentReactions, reaction];
+      // Append reactions using setReactionsAsync if dynamic-page is enabled
+      if ('setReactionsAsync' in sourceNode) {
+        let current = [];
+        try {
+          current = 'getReactionsAsync' in sourceNode
+            ? await sourceNode.getReactionsAsync()
+            : (sourceNode.reactions || []);
+        } catch (e) {
+          current = [];
+        }
+        await sourceNode.setReactionsAsync([...current, reaction]);
+      } else {
+        const currentReactions = sourceNode.reactions || [];
+        sourceNode.reactions = [...currentReactions, reaction];
+      }
 
       return {
         status: 'interaction_added',
