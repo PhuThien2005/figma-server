@@ -1,0 +1,17 @@
+{
+  "name": "AGY Figma Bridge",
+  "id": "agy-figma-bridge-v1",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma", "dev"],
+  "networkAccess": {
+    "allowedDomains": [
+      "http://localhost:8765",
+      "ws://localhost:8765",
+      "http://127.0.0.1:8765",
+      "ws://127.0.0.1:8765"
+    ],
+    "reasoning": "Connects to local Antigravity CLI Bridge Server for AI-assisted UI design and automated prototyping."
+  }
+}

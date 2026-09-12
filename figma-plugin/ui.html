@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AGY Figma Bridge</title>
+  <style>
+    :root {
+      --bg: #1e1e1e;
+      --card-bg: #2d2d2d;
+      --text: #f0f0f0;
+      --text-muted: #888888;
+      --accent: #10b981;
+      --accent-err: #ef4444;
+      --accent-warn: #f59e0b;
+      --border: #3d3d3d;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 12px;
+      padding: 14px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .title {
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--accent-err);
+    }
+    .status-badge.connected {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent);
+    }
+    .status-badge.connecting {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-warn);
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .info-panel {
+      background: var(--card-bg);
+      border-radius: 6px;
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .info-panel strong {
+      color: var(--text);
+    }
+    .log-container {
+      flex: 1;
+      background: #151515;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px;
+      overflow-y: auto;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .log-entry {
+      line-height: 1.4;
+      word-break: break-all;
+    }
+    .log-entry.info { color: #93c5fd; }
+    .log-entry.success { color: #86efac; }
+    .log-entry.warn { color: #fde047; }
+    .log-entry.error { color: #fca5a5; }
+    .log-time {
+      color: #666;
+      margin-right: 4px;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .btn {
+      background: #3b82f6;
+      color: #fff;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 11px;
+    }
+    .btn:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">
+      <span>⚡ AGY Bridge</span>
+    </div>
+    <div id="statusBadge" class="status-badge connecting">
+      <span class="dot"></span>
+      <span id="statusText">Connecting...</span>
+    </div>
+  </div>
+
+  <div class="info-panel">
+    <div>Endpoint: <strong id="endpointText">ws://localhost:8765</strong></div>
+    <div>Keep this plugin tab running while prompting in agy.</div>
+  </div>
+
+  <div id="logContainer" class="log-container">
+    <div class="log-entry info">
+      <span class="log-time">[Init]</span> Starting AGY Bridge client...
+    </div>
+  </div>
+
+  <div class="footer">
+    <span id="statsText">0 actions dispatched</span>
+    <button class="btn" id="btnReconnect">Reconnect</button>
+  </div>
+
+  <script>
+    const WS_URL = 'ws://localhost:8765';
+    const statusBadge = document.getElementById('statusBadge');
+    const statusText = document.getElementById('statusText');
+    const logContainer = document.getElementById('logContainer');
+    const statsText = document.getElementById('statsText');
+    const btnReconnect = document.getElementById('btnReconnect');
+
+    let socket = null;
+    let actionCount = 0;
+    let reconnectTimer = null;
+
+    function addLog(message, type = 'info') {
+      const entry = document.createElement('div');
+      entry.className = `log-entry ${type}`;
+      const time = new Date().toLocaleTimeString();
+      entry.innerHTML = `<span class="log-time">[${time}]</span> ${escapeHtml(message)}`;
+      logContainer.appendChild(entry);
+      logContainer.scrollTop = logContainer.scrollHeight;
+    }
+
+    function escapeHtml(text) {
+      if (typeof text !== 'string') text = JSON.stringify(text);
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function setStatus(status) {
+      statusBadge.className = `status-badge ${status}`;
+      if (status === 'connected') {
+        statusText.textContent = 'Connected';
+      } else if (status === 'connecting') {
+        statusText.textContent = 'Connecting...';
+      } else {
+        statusText.textContent = 'Disconnected';
+      }
+    }
+
+    function connect() {
+      if (socket && (socket.readyState === WebSocket.OPEN || socket.readyState === WebSocket.CONNECTING)) {
+        return;
+      }
+
+      setStatus('connecting');
+      addLog(`Connecting to ${WS_URL}...`, 'info');
+
+      try {
+        socket = new WebSocket(WS_URL);
+
+        socket.onopen = () => {
+          setStatus('connected');
+          addLog('Connected to AGY Bridge Server! Ready for commands.', 'success');
+          // Send handshake to server
+          socket.send(JSON.stringify({
+            type: 'HANDSHAKE',
+            client: 'figma-plugin',
+            timestamp: Date.now()
+          }));
+        };
+
+        socket.onmessage = (event) => {
+          try {
+            const data = JSON.parse(event.data);
+            addLog(`Received: ${data.action || data.type || 'message'}`, 'info');
+            actionCount++;
+            statsText.textContent = `${actionCount} actions processed`;
+
+            // Forward command to Figma sandbox engine
+            parent.postMessage({ pluginMessage: data }, '*');
+          } catch (err) {
+            addLog(`Error parsing incoming JSON: ${err.message}`, 'error');
+          }
+        };
+
+        socket.onclose = () => {
+          setStatus('disconnected');
+          addLog('Disconnected from server. Reconnecting in 3s...', 'warn');
+          scheduleReconnect();
+        };
+
+        socket.onerror = (err) => {
+          setStatus('disconnected');
+          addLog('Connection error. Is bridge server running?', 'error');
+        };
+      } catch (err) {
+        setStatus('disconnected');
+        addLog(`WebSocket init error: ${err.message}`, 'error');
+        scheduleReconnect();
+      }
+    }
+
+    function scheduleReconnect() {
+      if (reconnectTimer) clearTimeout(reconnectTimer);
+      reconnectTimer = setTimeout(() => {
+        connect();
+      }, 3000);
+    }
+
+    btnReconnect.addEventListener('click', () => {
+      if (socket) {
+        try { socket.close(); } catch(e) {}
+      }
+      connect();
+    });
+
+    // Receive message back from Figma sandbox engine and forward to Bridge Server
+    window.onmessage = (event) => {
+      const pluginMsg = event.data ? event.data.pluginMessage : null;
+      if (pluginMsg) {
+        if (pluginMsg.type === 'LOG') {
+          addLog(pluginMsg.message, pluginMsg.level || 'info');
+        } else {
+          // Send result payload back through WebSocket
+          if (socket && socket.readyState === WebSocket.OPEN) {
+            socket.send(JSON.stringify(pluginMsg));
+          }
+        }
+      }
+    };
+
+    // Auto connect on launch
+    connect();
+  </script>
+</body>
+</html>
