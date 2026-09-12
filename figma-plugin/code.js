@@ -64,7 +64,7 @@ function resolveNodeId(idOrRef, refMap) {
   return idOrRef;
 }
 
-// Safe async node getter (compatible with dynamic-page mode)
+// Safe async node getter (compatible with dynamic-page mode and name matching)
 async function getNode(id) {
   if (!id) return null;
   if ('getNodeByIdAsync' in figma) {
@@ -74,10 +74,20 @@ async function getNode(id) {
     } catch (e) {}
   }
   try {
-    return figma.getNodeById(id);
-  } catch (e) {
-    return null;
-  }
+    const n = figma.getNodeById(id);
+    if (n) return n;
+  } catch (e) {}
+  try {
+    if ('findOneAsync' in figma.currentPage) {
+      const found = await figma.currentPage.findOneAsync(n => n.name === id || n.id === id);
+      if (found) return found;
+    }
+  } catch (e) {}
+  try {
+    const found = figma.currentPage.findOne(n => n.name === id || n.id === id);
+    if (found) return found;
+  } catch (e) {}
+  return null;
 }
 
 // Safe image fill loader
@@ -130,6 +140,16 @@ async function executeAction(action, params = {}, refMap = {}) {
           id: figma.currentPage.id,
           name: figma.currentPage.name,
           childCount: figma.currentPage.children.length,
+          children: figma.currentPage.children.map(c => ({
+            id: c.id,
+            name: c.name,
+            type: c.type,
+            x: c.x,
+            y: c.y,
+            width: c.width,
+            height: c.height,
+            reactionsCount: c.reactions ? c.reactions.length : 0
+          })),
           flowStartingPoints: figma.currentPage.flowStartingPoints
         },
         pages: figma.root.children.map(p => ({ id: p.id, name: p.name }))

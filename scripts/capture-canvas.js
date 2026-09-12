@@ -5,9 +5,10 @@ import path from 'path';
 
 const BRIDGE_URL = process.env.BRIDGE_URL || 'http://localhost:8765';
 const OUTPUT_FILE = process.argv[2] || 'C:/figma/captured_canvas.png';
+const TARGET_NODE = process.argv[3] || null;
 
 async function capture() {
-  console.log('📸 Capturing screenshot directly from Figma Canvas...');
+  console.log(`📸 Capturing screenshot directly from Figma Canvas${TARGET_NODE ? ` (${TARGET_NODE})` : ''}...`);
 
   try {
     const res = await fetch(`${BRIDGE_URL}/execute`, {
@@ -15,7 +16,7 @@ async function capture() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         action: 'EXPORT_FRAME',
-        params: { scale: 1 }
+        params: { nodeId: TARGET_NODE, scale: 1 }
       })
     });
 
