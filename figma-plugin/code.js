@@ -90,25 +90,28 @@ async function getNode(id) {
   return null;
 }
 
-// Safe image fill loader
+// Safe image fill loader with timeout protection
 async function applyImageFill(node, imageUrl, fallbackColor = null) {
-  if (imageUrl) {
-    try {
-      const image = await figma.createImageAsync(imageUrl);
-      node.fills = [{
-        type: 'IMAGE',
-        imageHash: image.hash,
-        scaleMode: 'FILL'
-      }];
-      return;
-    } catch (imgErr) {
-      logToUI(`Could not load image ${imageUrl}: ${imgErr.message}`, 'warn');
-    }
-  }
   if (fallbackColor) {
     node.fills = [{ type: 'SOLID', color: parseColor(fallbackColor) }];
-  } else if (!imageUrl) {
-    node.fills = [{ type: 'SOLID', color: { r: 1, g: 1, b: 1 } }];
+  } else {
+    node.fills = [{ type: 'SOLID', color: { r: 0.1, g: 0.15, b: 0.25 } }];
+  }
+  if (imageUrl) {
+    try {
+      const imgPromise = figma.createImageAsync(imageUrl);
+      const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Image download timeout')), 3500));
+      const image = await Promise.race([imgPromise, timeoutPromise]);
+      if (image && image.hash) {
+        node.fills = [{
+          type: 'IMAGE',
+          imageHash: image.hash,
+          scaleMode: 'FILL'
+        }];
+      }
+    } catch (imgErr) {
+      logToUI(`Image skipped (${imgErr.message}), using fallback color`, 'warn');
+    }
   }
 }
 
