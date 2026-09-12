@@ -34,18 +34,28 @@ function parseColor(color) {
   return { r: 1, g: 1, b: 1 };
 }
 
-// Safe font loader
+// Safe font loader with in-memory cache
+const loadedFontsCache = new Set();
+
 async function ensureFont(family = 'Inter', style = 'Regular') {
+  const key = `${family}-${style}`;
+  if (loadedFontsCache.has(key)) {
+    return { family, style };
+  }
+
   try {
     await figma.loadFontAsync({ family, style });
+    loadedFontsCache.add(key);
     return { family, style };
   } catch (err) {
     try {
       await figma.loadFontAsync({ family: 'Inter', style: 'Regular' });
+      loadedFontsCache.add('Inter-Regular');
       return { family: 'Inter', style: 'Regular' };
     } catch (fallbackErr) {
       try {
         await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
+        loadedFontsCache.add('Roboto-Regular');
         return { family: 'Roboto', style: 'Regular' };
       } catch (e) {
         return null;
@@ -625,6 +635,36 @@ async function executeAction(action, params = {}, refMap = {}) {
         figma.viewport.scrollAndZoomIntoView(figma.currentPage.children);
       }
       return { status: 'zoomed', count: figma.currentPage.children.length };
+    }
+
+    case 'DELETE_NODE': {
+      const targetId = resolveNodeId(params.nodeId, refMap);
+      const node = await getNode(targetId);
+      if (node) {
+        node.remove();
+        return { status: 'deleted', id: targetId };
+      }
+      return { status: 'not_found', id: targetId };
+    }
+
+    case 'DELETE_NODES_BY_Y': {
+      const minY = params.minY || 4000;
+      const toRemove = figma.currentPage.children.filter(c => c.y >= minY);
+      for (const node of toRemove) {
+        node.remove();
+      }
+      return { status: 'deleted_by_y', count: toRemove.length };
+    }
+
+    case 'DELETE_NODES_MATCHING': {
+      const matchText = params.matchText || '[Light]';
+      const toRemove = figma.currentPage.children.filter(c => 
+        c.name.includes(matchText) || c.name === 'Text' || c.name === 'Button' || c.y >= 4000
+      );
+      for (const node of toRemove) {
+        node.remove();
+      }
+      return { status: 'deleted_matching', count: toRemove.length };
     }
 
     case 'CLEAR_PAGE': {
