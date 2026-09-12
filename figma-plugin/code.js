@@ -64,6 +64,28 @@ function resolveNodeId(idOrRef, refMap) {
   return idOrRef;
 }
 
+// Safe image fill loader
+async function applyImageFill(node, imageUrl, fallbackColor = null) {
+  if (imageUrl) {
+    try {
+      const image = await figma.createImageAsync(imageUrl);
+      node.fills = [{
+        type: 'IMAGE',
+        imageHash: image.hash,
+        scaleMode: 'FILL'
+      }];
+      return;
+    } catch (imgErr) {
+      logToUI(`Could not load image ${imageUrl}: ${imgErr.message}`, 'warn');
+    }
+  }
+  if (fallbackColor) {
+    node.fills = [{ type: 'SOLID', color: parseColor(fallbackColor) }];
+  } else if (!imageUrl) {
+    node.fills = [{ type: 'SOLID', color: { r: 1, g: 1, b: 1 } }];
+  }
+}
+
 // Core action executor
 async function executeAction(action, params = {}, refMap = {}) {
   switch (action) {
@@ -123,13 +145,8 @@ async function executeAction(action, params = {}, refMap = {}) {
         }
       }
 
-      // Fill color
-      if (params.backgroundColor) {
-        const c = parseColor(params.backgroundColor);
-        frame.fills = [{ type: 'SOLID', color: c }];
-      } else {
-        frame.fills = [{ type: 'SOLID', color: { r: 1, g: 1, b: 1 } }];
-      }
+      // Fill color or image
+      await applyImageFill(frame, params.imageUrl, params.backgroundColor);
 
       if (params.cornerRadius !== undefined) {
         frame.cornerRadius = params.cornerRadius;
@@ -271,9 +288,7 @@ async function executeAction(action, params = {}, refMap = {}) {
       const rect = figma.createRectangle();
       rect.name = params.name || 'Rectangle';
       rect.resize(params.width || 100, params.height || 100);
-      if (params.color) {
-        rect.fills = [{ type: 'SOLID', color: parseColor(params.color) }];
-      }
+      await applyImageFill(rect, params.imageUrl, params.color);
       if (params.cornerRadius !== undefined) {
         rect.cornerRadius = params.cornerRadius;
       }

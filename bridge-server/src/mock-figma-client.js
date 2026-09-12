@@ -136,6 +136,20 @@ export class MockFigmaPlugin {
         return { id, name: node.name, type: node.type };
       }
 
+      case 'CREATE_RECTANGLE': {
+        const id = genId();
+        const node = {
+          id,
+          type: 'RECTANGLE',
+          name: params.name || 'Rectangle',
+          width: params.width || 100,
+          height: params.height || 100,
+          imageUrl: params.imageUrl || null
+        };
+        this.virtualCanvas.nodes.set(id, node);
+        return { id, name: node.name, type: node.type };
+      }
+
       case 'CREATE_FLOW': {
         const frame = this.virtualCanvas.nodes.get(params.frameId);
         if (!frame) throw new Error(`Target frame not found: ${params.frameId}`);
