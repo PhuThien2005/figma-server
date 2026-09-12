@@ -157,6 +157,106 @@ function base64ToBytes(base64) {
 // Core action executor
 async function executeAction(action, params = {}, refMap = {}) {
   switch (action) {
+    case 'INSPECT_PAGE_IMAGES': {
+      const results = [];
+      function traverse(node, frameName = '', frameY = 0) {
+        if ('fills' in node && Array.isArray(node.fills)) {
+          const hasImage = node.fills.some(f => f.type === 'IMAGE');
+          const isContainer = (node.width >= 50 && node.height >= 50) && (node.type === 'RECTANGLE' || node.type === 'FRAME');
+          if (isContainer) {
+            results.push({
+              id: node.id,
+              name: node.name,
+              type: node.type,
+              frameName: frameName,
+              frameY: frameY,
+              width: node.width,
+              height: node.height,
+              hasImage: hasImage,
+              fills: node.fills.map(f => ({ type: f.type, color: f.color }))
+            });
+          }
+        }
+        if ('children' in node) {
+          for (const child of node.children) {
+            traverse(child, frameName || node.name, frameY || node.y || 0);
+          }
+        }
+      }
+
+      for (const child of figma.currentPage.children) {
+        traverse(child, child.name, child.y || 0);
+      }
+      return { totalCandidates: results.length, nodes: results };
+    }
+
+    case 'BATCH_FILL_IMAGES': {
+      // params.assignments: array of { id, imageBase64, scaleMode }
+      // Or params.assignments: array of { targetPattern, frameFilter, imageBase64, scaleMode }
+      const assignments = params.assignments || [];
+      const imageCache = new Map(); // base64 -> image
+      let filledCount = 0;
+      const details = [];
+
+      for (const a of assignments) {
+        let image;
+        if (imageCache.has(a.imageBase64)) {
+          image = imageCache.get(a.imageBase64);
+        } else {
+          const bytes = base64ToBytes(a.imageBase64);
+          image = figma.createImage(bytes);
+          imageCache.set(a.imageBase64, image);
+        }
+
+        if (a.id) {
+          const node = await getNode(a.id);
+          if (node && 'fills' in node) {
+            node.fills = [{
+              type: 'IMAGE',
+              scaleMode: a.scaleMode || 'FILL',
+              imageHash: image.hash
+            }];
+            filledCount++;
+            details.push({ id: node.id, name: node.name, frame: node.parent ? node.parent.name : '' });
+          }
+        } else if (a.targetPattern) {
+          const regex = new RegExp(a.targetPattern, 'i');
+          const frameRegex = a.frameFilter ? new RegExp(a.frameFilter, 'i') : null;
+
+          function scanAndFill(node, currentFrameName = '') {
+            if (regex.test(node.name)) {
+              if (!frameRegex || frameRegex.test(currentFrameName)) {
+                if ('fills' in node) {
+                  node.fills = [{
+                    type: 'IMAGE',
+                    scaleMode: a.scaleMode || 'FILL',
+                    imageHash: image.hash
+                  }];
+                  filledCount++;
+                  details.push({ id: node.id, name: node.name, frame: currentFrameName });
+                }
+              }
+            }
+            if ('children' in node) {
+              for (const c of node.children) {
+                scanAndFill(c, currentFrameName || node.name);
+              }
+            }
+          }
+
+          for (const child of figma.currentPage.children) {
+            scanAndFill(child, child.name);
+          }
+        }
+      }
+
+      return { status: 'batch_fill_completed', filledCount, details };
+    }
+
+    case 'TEST_RELOAD': {
+      return { status: 'reloaded', timestamp: Date.now() };
+    }
+
     case 'PING': {
       return { status: 'pong', time: Date.now() };
     }
