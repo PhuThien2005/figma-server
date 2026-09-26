@@ -17,11 +17,17 @@
 
 ## 🌟 1. Tổng Quan Hệ Thống 104 Màn Hình (Dual Themes)
 
-Hệ thống **ARKI** được xây dựng đạt quy mô **104 màn hình di động độc lập** (chuẩn iPhone 16 Pro, $393 \times 852\text{ px}$) được phân bổ đối xứng hoàn hảo trên Figma Canvas:
-- **🌙 Nocturne Dark Theme (52 Màn hình)**: Tọa độ $Y = 0 \rightarrow 3840$, tông màu đen obsidian (`#07090E`) kết hợp xanh sapphire (`#131B2E`) và điểm nhấn cyan ánh dương (`#38BDF8`).
-- **☀️ Daylight Porcelain Theme (52 Màn hình)**: Tọa độ $Y = 5200 \rightarrow 9040$, tông màu gốm sứ trắng Địa Trung Hải (`#F8FAFC` & `#FFFFFF`) và điểm nhấn xanh biển sâu (`#0284C7`).
+Hệ thống **ARKI** được xây dựng đạt quy mô **106 màn hình di động độc lập** (chuẩn iPhone 16 Pro, $393 \times 852\text{ px}$) được phân bổ đối xứng hoàn hảo trên Figma Canvas:
+- **☀️ Daylight Porcelain Theme (53 Màn hình - GIAO DIỆN CHÍNH MẶC ĐỊNH)**: Tọa độ $Y = 5200 \rightarrow 9040$, tông màu gốm sứ trắng Địa Trung Hải (`#F8FAFC` & `#FFFFFF`) và điểm nhấn xanh biển sâu (`#0284C7`). Được thiết lập làm **Flow Starting Point 1 & 2 ưu tiên số 1** khi phát trình chiếu Prototype.
+- **🌙 Nocturne Dark Theme (53 Màn hình)**: Tọa độ $Y = 0 \rightarrow 3840$, tông màu đen obsidian (`#07090E`) kết hợp xanh sapphire (`#131B2E`) và điểm nhấn cyan ánh dương (`#38BDF8`).
+- **🖼️ Hình Ảnh Full Chiều Ngang (393px) & Bo Góc Nghệ Thuật Đồng Bộ**: Mọi ảnh kiến trúc chủ đạo (Hero Onboarding, Bảng tin Home Feed, Chi tiết dinh thự, Video Tour 16:9, Sliders ảnh) đều được fix full chiều ngang $393\text{ px}$ ($X = 0$) và bo góc tinh tế ($24 - 28\text{ px}$ cho hero/media; $16 - 20\text{ px}$ cho thẻ phụ/thumbnail; $14\text{ px}$ cho vật liệu), loại bỏ góc nhọn thô cứng.
+- **🔘 Chuẩn Nút Quay Lại Tròn Kính Mờ & Universal Icons (Icon Quy Chuẩn)**: Loại bỏ nhãn chữ thừa, chuyển đổi 100% nút quay lại sang nút tròn kính mờ $42 \times 42\text{ px}$ (`cornerRadius: 21`, tọa độ $X = 24, Y = 54$, icon `←` căn giữa). Áp dụng trọn bộ icon quy chuẩn tự hiểu (Back `←`, Close `✕`, Search `🔍`, Menu `☰`, Theme `☀`/`☾`, Share `↗`).
+- **🌐 360° Panorama Đa Hướng (Omnidirectional 2D Pan — Ngang, Dọc & Chéo)**: Màn hình toàn cảnh chuẩn Google Street View với dải canvas 3 tầng đa cao độ $3400 \times 1800\text{ px}$, mở khóa cuộn tự do 2D (`overflowDirection: 'BOTH'`) cho phép người dùng click-drag kéo lên (nhìn xuống hồ bơi), kéo xuống (ngước nhìn vòm trần kính), xoay ngang $360^\circ$ và lướt chéo $45^\circ$ kết hợp 4 điểm Hotspot không gian tương tác.
+- **🇻🇳 Tiếng Việt Là Ngôn Ngữ Hiển Thị Mặc Định**: Toàn bộ nội dung trên 52 màn hình Daylight Porcelain được biên soạn mặc định bằng tiếng Việt phong thái sang trọng, chuyên nghiệp.
+- **🍔 Menu 3 Gạch & Bộ Icon Nét Vẽ Đồng Bộ (Monochrome Line-Art)**: Loại bỏ hoàn toàn các emoji màu mè; tích hợp trọn bộ icon chung style hình vẽ vector tối giản (độ dày nét 2px chuẩn Material Outlined), bao gồm nút chuyển theme nét vẽ (☀️/🌙), chuyển ngôn ngữ Swiss Typography (`VI`/`EN`), nút liên kết (`↗`) và ma trận lối tắt 6 ô.
+- **📱 Chuẩn Gói Gọn Trong 1 Màn Hình Chiều Dọc (Single Viewport - 393 × 852 px)**: Loại bỏ các nút chuyển theme dư thừa trên 100 màn hình con (chỉ giữ theme switch tập trung trong Menu Drawer và Header Trang chủ). Khắc phục triệt để tràn viền dọc (`Details Body` bottom = 852px), đảm bảo toàn bộ form, thẻ thông tin và nút CTA hiển thị trọn vẹn không cần cuộn dọc (trừ các màn hình feed danh sách dài thực sự cần thiết).
 - **🧩 10 Reusable Master Components**: Tọa độ $X = 5800$, hỗ trợ toàn diện các biến thể nút bấm, thẻ bất động sản, thanh điều hướng đáy và huy hiệu 3D VR.
-- **🔗 370+ Liên Kết Tương Tác Prototype**: Bao phủ mọi trạng thái chuyển màn hình, nút lùi trang an toàn (`SLIDE_OUT`), nút tiếp diễn (`SMART_ANIMATE`), chuyển theme 2 chiều tức thì (`☀️ Light` $\leftrightarrow$ `🌙 Dark`), và 2 Flow Starting Points độc lập.
+- **🔗 390+ Liên Kết Tương Tác Prototype**: Bao phủ mọi trạng thái chuyển màn hình, nút lùi trang an toàn (`SLIDE_OUT`), nút tiếp diễn (`SMART_ANIMATE`), chuyển theme 2 chiều tức thì, và luồng trượt mở menu (`SLIDE_IN` / `SLIDE_OUT`).
 
 ```mermaid
 flowchart TB
@@ -118,6 +124,7 @@ Toàn bộ 104 màn hình được trang bị đầy đủ **Status Bar chân th
 | **50** | `22b` | `ARKI / 22b - Share Estate Link & QR` | `ARKI / 22b - Share Estate Link & QR [Light]`| Chia sẻ liên kết bất động sản có mật mã bảo vệ và hình mờ sinh trắc học. |
 | **51** | `23` | `ARKI / 23 - Fullscreen Architectural Grid`| `ARKI / 23 - Fullscreen Architectural Grid [Light]`| Chế độ xem lưới 9 ảnh kiến trúc toàn màn hình (Ngoại thất, Nội thất, Chi tiết).|
 | **52** | `24` | `ARKI / 24 - Offline VR Spatial Cache` | `ARKI / 24 - Offline VR Spatial Cache [Light]`| Bộ nhớ đệm dữ liệu 3D VR (1.2 GB) phục vụ tham quan khi bay không có Internet.|
+| **53** | `25` | `ARKI / 25 - Navigation Drawer Menu` | `ARKI / 25 - Navigation Drawer Menu [Light]` | Khay menu 3 gạch (☰) trượt thông minh: Avatar VIP, chuyển theme icon nhỏ (☀️/🌙), đổi ngôn ngữ (VI/EN), lối tắt điều hướng.|
 
 ---
 
@@ -135,12 +142,15 @@ Toàn bộ 104 màn hình được trang bị đầy đủ **Status Bar chân th
   - Âm trường 3D đa hướng (Binaural Audio 7.1.4 Dolby Atmos) thay đổi biên độ theo góc quay của camera.
 - **Điều khiển trực quan**: Nút `✕ Back`, thanh tua thời gian thực `02:45 / 04:10`, nút chuyển theme `☀️ Light` / `🌙 Dark` tức thì.
 
-### 3.2. Không Gian 3D Matterport VR (`ARKI / 11 - 3D Matterport VR`)
-- **Điểm dữ liệu 3D Point Cloud**: Số hóa với sai số dưới 1mm bằng máy quét laser Leica.
-- **Hệ thống Hotspots không gian**:
-  - `◉ Walk to Terrace`: Đưa người xem tức thì ra góc nhìn ban công hoàng hôn (`15 - Slider 3`).
-  - `◉ Enter Living Room`: Chuyển camera về phòng khách Travertine (`13 - Slider 1`).
-  - `◉ Enter Kitchen Atrium`: Chuyển đến đảo bếp đá Marble Calacatta Boffi (`14 - Slider 2`).
+### 3.2. 360° Panorama Street View Kéo Xoay Mượt Mà (`ARKI / 11 - 360° Panorama Street View`)
+- **Kỹ thuật Horizontal Scrolling chuẩn Figma**:
+  - Khung nhìn (Viewport Frame) $393 \times 852\text{ px}$ được bật **Clip content** và cấu hình Prototype `overflowDirection: 'HORIZONTAL'`.
+  - Dải ảnh Panorama siêu rộng $3400\text{ px}$ ghép nhân bản 2 tấm ảnh toàn cảnh chất lượng cao (ảnh A ghép nối tiếp ảnh A) giúp người dùng click-drag kéo xoay qua lại mượt mà, không bị khựng mép ảnh.
+  - Tầng HUD cố định (Fixed Layers) gồm thanh trạng thái, nút tròn kính mờ `←`, badge nhận diện và thanh hướng dẫn thao tác `↔` luôn ghim vững chắc trên màn hình trong suốt quá trình kéo xoay.
+- **Hệ thống Hotspots không gian thực tế**:
+  - `◉ Đại Sảnh Thông Tầng`: Định vị không gian phòng khách trần cao 7.2m ốp đá Travertine.
+  - `◉ Hồ Bơi Vô Cực 35m`: Đưa tầm mắt ra hồ bơi nước mặn vươn console ngắm hoàng hôn.
+  - `◉ Bãi Đáp Trực Thăng`: Định vị sân đáp trực thăng riêng trên tầng thượng dinh thự.
 
 ---
 

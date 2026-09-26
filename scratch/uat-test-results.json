@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-09-20T14:33:20.857Z",
+  "totalScreens": 125,
+  "lightScreens": 58,
+  "totalScore": 80,
+  "maxScore": 80,
+  "percentage": 100,
+  "testCases": [
+    {
+      "id": "AC1",
+      "name": "Vùng Chạm Chuẩn Fitts's Law (Nút Quay Lại >= 42x42px)",
+      "pass": true,
+      "detail": "Đã kiểm tra 104/104 nút quay lại tròn đạt chuẩn công thái học 42x42px (cornerRadius: 21).",
+      "score": 10
+    },
+    {
+      "id": "AC2",
+      "name": "Khống Chế Tràn Khung Văn Bản (0 Text Overflows Trên Khung 393px)",
+      "pass": true,
+      "detail": "Số lượng text node tràn khung mép phải: 0 lỗi. 100% text node tuân thủ safe margin <= 361px.",
+      "score": 10
+    },
+    {
+      "id": "AC3",
+      "name": "Chuẩn Thiết Kế Glassmorphism 4 Lớp (Transparency, Blur, Stroke, Shadow)",
+      "pass": true,
+      "detail": "Đã áp dụng đồng bộ trên 226 thành phần: Thẻ dinh thự, Ô tìm kiếm, Chip filter, Thanh dock đáy, Khay menu.",
+      "score": 10
+    },
+    {
+      "id": "AC4",
+      "name": "Động Cơ 360° Panorama Đa Hướng (Kéo Lên • Xuống • Ngang • Chéo)",
+      "pass": true,
+      "detail": "Màn hình [ARKI / 11 - 360° Panorama Street View [Light]] kích hoạt cuộn 2D tự do (overflowDirection: BOTH) trên canvas 3400x1800px đa cao độ.",
+      "score": 10
+    },
+    {
+      "id": "AC5",
+      "name": "Gói Gọn Viewport Chiều Dọc (Single Viewport 393 x 852 px)",
+      "pass": true,
+      "detail": "Khối Details Body có tọa độ đáy chính xác = 852px <= 852px (Không overflow dọc).",
+      "score": 10
+    },
+    {
+      "id": "AC6",
+      "name": "Bản Địa Hóa Tiếng Việt Mặc Định (Daylight Porcelain Theme)",
+      "pass": true,
+      "detail": "Đã kiểm tra và xác nhận 104 cụm từ tiếng Việt chuyên ngành trên 52 màn hình Light Theme.",
+      "score": 10
+    },
+    {
+      "id": "AC7",
+      "name": "Hệ Thống Icon Quy Chuẩn (Universal Icons — Icon-First Design)",
+      "pass": true,
+      "detail": "Đã xác nhận 50 nút quay lại chỉ dùng biểu tượng mũi tên [←] không nhãn chữ thừa; menu [☰], đóng [✕], tìm kiếm [🔍].",
+      "score": 10
+    },
+    {
+      "id": "AC8",
+      "name": "Workflow Chụp Ảnh Kiểm Thử Thị Giác (Automated Visual Proof)",
+      "pass": true,
+      "detail": "Đã chụp thành công 4/4 ảnh màn hình chất lượng cao trực tiếp từ Figma Canvas.",
+      "score": 10
+    }
+  ]
+}

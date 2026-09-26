@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-09-20T14:44:23.705Z",
+  "totalFamilies": 8,
+  "totalVariants": 22,
+  "totalScore": 80,
+  "maxScore": 80,
+  "passCount": 8,
+  "acResults": [
+    {
+      "id": "AC-CMP-1",
+      "name": "Kiến Trúc Component Đa Biến Thể (>= 6 Component Sets, >= 20 Variants)",
+      "pass": true,
+      "score": 10,
+      "detail": "Đã khởi tạo chuẩn hóa 8/8 Component Sets với 22 biến thể tương tác."
+    },
+    {
+      "id": "AC-CMP-2",
+      "name": "Phản Hồi Xúc Giác Nút Bấm & Thẻ (Hover & Pressed Micro-interactions)",
+      "pass": true,
+      "score": 10,
+      "detail": "Nút tròn 42px, Nút kính 48px và Thẻ dinh thự có đầy đủ biến thể Hover tỏa quang & Pressed nén 100ms."
+    },
+    {
+      "id": "AC-CMP-3",
+      "name": "Chuyển Động Mượt Chuẩn Công Thái Học (Smart Animate 100ms - 220ms)",
+      "pass": true,
+      "score": 10,
+      "detail": "100% các vi mô đã đấu nối Smart Animate: 100ms (Press), 180ms (Hover), 220ms (Switch)."
+    },
+    {
+      "id": "AC-CMP-4",
+      "name": "Ô Nhập Liệu Có Active Focus Ring Nhận Diện (State=Focused)",
+      "pass": true,
+      "score": 10,
+      "detail": "Ô tìm kiếm kính mờ sở hữu trạng thái [Focused] với con trỏ nhấp nháy và viền sáng vàng Champagne."
+    },
+    {
+      "id": "AC-CMP-5",
+      "name": "Cơ Chế Chuyển Mạch & Lọc Tương Tác 2 Chiều (Toggle Switch & Chip Filter)",
+      "pass": true,
+      "score": 10,
+      "detail": "Nút gạt (Off <-> On) và Chip lọc (Unselected <-> Selected) kích hoạt chuyển trạng thái qua ON_CLICK."
+    },
+    {
+      "id": "AC-CMP-6",
+      "name": "Điểm Nóng 360° Không Gian Tự Do (Hotspot Spatial Marker)",
+      "pass": true,
+      "score": 10,
+      "detail": "Hotspot 360 có trạng thái Default nhịp thở, Hover nhấn mạnh và Expanded mở rộng thẻ HUD kiến trúc."
+    },
+    {
+      "id": "AC-CMP-7",
+      "name": "Thanh Dock Đáy Nhận Diện Mục Chọn (Active Indicator Pill)",
+      "pass": true,
+      "score": 10,
+      "detail": "Mục điều hướng đáy sở hữu trạng thái [Active] có vạch chỉ báo ánh vàng sang trọng."
+    },
+    {
+      "id": "AC-CMP-8",
+      "name": "Workflow Chụp Ảnh Kiểm Chứng Thị Giác Master Library (Visual Proof)",
+      "pass": true,
+      "score": 10,
+      "detail": "Đã chụp thành công 3 ảnh mẫu Component trực tiếp từ Canvas."
+    }
+  ]
+}

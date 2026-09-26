@@ -77,40 +77,87 @@ Hệ sinh thái ARKI sở hữu hơn **370+ transitions tương tác**, kết n�
 1. Trong file Figma, chuyển tới trang **`Page 3`**.
 2. Nhấn tổ hợp phím tắt:
    - Windows: **`Shift + Space`** (mở cửa sổ Preview trực tiếp ngay trên Canvas) hoặc chọn nút **Play** ở góc trên bên phải thanh công cụ.
-3. Ở cột bên phải tab **Prototype**, bạn sẽ thấy danh sách **Flow starting points**:
-   - **`⚡ ARKI — Full Interactive Experience`**: Luồng trải nghiệm hoàn chỉnh toàn bộ tính năng (Loading $\rightarrow$ Home $\rightarrow$ Details $\rightarrow$ 3D $\rightarrow$ Video $\rightarrow$ Booking).
-   - **`🌙 ARKI — Nocturne Dark Experience`**: Trải nghiệm độc lập 52 màn hình Dark Theme.
-   - **`☀️ ARKI — Daylight Porcelain Experience`**: Trải nghiệm độc lập 52 màn hình Light Theme.
-   - **`🌀 ARKI — 3D Turntable 360° Drag Experience`**: Thử nghiệm tương tác xoay biệt thự 360° bằng cử chỉ kéo.
-   - **`🎬 ARKI — 4K Flythrough Video Player Experience`**: Thử nghiệm trình phát video 2 trạng thái Play/Pause.
-   - **`⏳ ARKI — 3-Stage Animated Loading Experience`**: Thử nghiệm thanh tải dữ liệu tự động.
+3. Ở cột bên phải tab **Prototype**, danh sách **Flow starting points** được thiết lập với **Giao Diện Sáng là luồng chính mặc định**:
+   - **`☀️ ARKI — Giao Diện Sáng Chính (52 Màn Hình & Menu Drawer)`** (Mặc định Flow 1): Khởi động trải nghiệm đầy đủ từ Splash Sáng.
+   - **`☀️ ARKI — Trang Chủ Khám Phá & Menu 3 Gạch [Light]`** (Flow 2): Trải nghiệm ngay Trang chủ khám phá kèm tương tác Menu 3 gạch (☰) và Avatar.
+   - **`🌙 ARKI — Nocturne Dark Flow (52 Màn Hình)`**: Trải nghiệm độc lập 52 màn hình Dark Theme.
+   - **`⚡ ARKI — Full Interactive Experience`**: Luồng toàn diện kết hợp màn tải động, 3D xoay 360°, video và 104 màn hình.
 
 ---
 
-## 5. Hướng Dẫn Thao Tác 3D Turntable 360° Drag & Video Player
+## 5. Hướng Dẫn Trải Nghiệm 360° Panorama Street View (Kéo Xoay Mượt Mà) & Video Tour
 
-### 🌀 Thao Tác Xoay 3D Turntable 360°
-1. Mở flow **`🌀 ARKI — 3D Turntable 360° Drag Experience`** hoặc chọn màn hình `11 - 3D Angle 000°`.
-2. **Nhấn giữ chuột trái (hoặc ngón tay trên màn hình cảm ứng) và vuốt ngang sang trái/phải**.
-3. Góc nhìn của biệt thự sẽ chuyển dịch mượt mà qua các góc quay:
-   - $000^\circ$ (Mặt tiền kính & hồ bơi)
-   - $090^\circ$ (Cánh đông & bãi đáp trực thăng)
-   - $180^\circ$ (Mặt sau hướng hoàng hôn)
-   - $270^\circ$ (Cánh tây & khuôn viên vườn thiền)
-   - $000^\circ$ (Quay tròn trở lại điểm đầu)
+### 🌐 Trải Nghiệm 360° Panorama Đa Hướng (Kéo Lên • Xuống • Ngang • Chéo Chuẩn Google Street View)
+Để mang lại trải nghiệm xem không gian 360 độ chân thực nhất theo mọi góc nhìn trong Figma (nhìn lên trần/trời, nhìn xuống sàn/hồ bơi, xoay vòng 360° và lướt chéo góc):
+1. **Khung nhìn Viewport (393 × 852 px)**: Màn hình `ARKI / 11 - 360° Panorama Street View [Light]` bật **Clip content** để ẩn phần canvas tràn ra ngoài.
+2. **Cấu hình Cuộn Tự Do 2D (`overflowDirection: 'BOTH'`)**: Viewport được thiết lập chế độ cuộn cả hai trục (Both horizontal and vertical scrolling), mở khóa khả năng click-drag chuột theo **bất kỳ hướng nào (Ngang, Dọc và Chéo $45^\circ$)**.
+3. **Không gian ảnh kiến trúc 3 tầng đa cao độ ($3400 \times 1800\text{ px}$)**:
+   - **Tầng Trên Cao ($Y: 0 \rightarrow 550$)**: Vòm kính thông tầng, giếng trời kiến trúc, bầu trời quang đãng và bãi đáp trực thăng tầng mái (kéo xuống để ngước nhìn lên trần).
+   - **Tầng Tầm Mắt ($Y: 520 \rightarrow 1380$)**: Đại sảnh thông tầng 7.2m, vách kính nhìn ra vách biển Sơn Trà, đảo bếp đá Calacatta thương hiệu Boffi (kéo ngang để xoay $360^\circ$ quanh phòng).
+   - **Tầng Dưới Thấp ($Y: 1350 \rightarrow 1800$)**: Mặt nước hồ bơi vô cực 35m soi bóng biệt thự, sàn gỗ Teak tự nhiên và đá phiến Travertine Ý (kéo lên để nhìn xuống sàn/nước).
+4. **Hotspot tương tác phân tầng**: Bố trí 4 điểm tương tác không gian ở các cao độ khác nhau (*🚁 Bãi đáp trực thăng tầng mái*, *◉ Đại sảnh thông tầng 7.2m*, *◉ Bếp đảo Boffi*, *🏊 Hồ bơi nước mặn 35m*).
+5. **Tầng điều khiển HUD kính mờ cố định (Fixed Layers)**: Nút quay lại tròn kính mờ $42 \times 42\text{ px}$ (`←`), thanh trạng thái, la bàn định hướng 360° và thẻ hướng dẫn thao tác đa hướng `✢` luôn ghim cố định trên màn hình, không bị trôi khi kéo ảnh.
+6. **Cách Thao Tác**:
+   - Mở flow **`🌐 ARKI — 360° Panorama Đa Hướng (Kéo Ngang, Dọc & Chéo)`** hoặc nhấn vào nút **`🥽 Không Gian 3D`** trên màn hình Chi Tiết Dinh Thự (`09`).
+   - Nhấn **`Shift + Space`** để bật Preview.
+   - Dùng chuột **nhấp giữ và kéo sang trái/phải (xoay ngang), kéo lên/xuống (nhìn trần/sàn) hoặc kéo chéo $45^\circ$** để khám phá mọi ngóc ngách không gian biệt thự.
 
 ### 🎬 Thao Tác Bật / Tắt Video Tour
-1. Chọn flow **`🎬 ARKI — 4K Flythrough Video Player Experience`** hoặc vào màn hình `12a - Video Tour (Paused)`.
+1. Chọn màn hình `12a - Video Tour (Paused)`.
 2. Bấm vào nút tròn lớn **`▶ Play`** ở giữa màn hình:
    - Giao diện lập tức chuyển sang trạng thái đang phát (`12b - Video Tour (Playing 02:45)`).
    - Nút đổi thành biểu tượng tạm dừng **`❚❚ Pause`**.
    - Thanh tiến trình scrubber đổi sang màu vàng hổ phách và hiển thị thời gian phát `02:45 / 04:10`.
 3. Bấm lại nút **`❚❚ Pause`** để đưa về trạng thái tạm dừng ban đầu.
 
-### ☀️ Chuyển Đổi Giao Diện Sáng / Tối Tức Thì
-- Trên góc trên cùng bên phải của tất cả các màn hình đều có nút chuyển theme:
-  - Bấm nút **`☀️ Light`** (trên màn hình Dark) $\rightarrow$ Chuyển ngay sang màn hình Light tương ứng.
-  - Bấm nút **`🌙 Dark`** (trên màn hình Light) $\rightarrow$ Trở về màn hình Dark tương ứng.
+### 🍔 Menu 3 Gạch (☰) & Bộ Icon Chung Style Hình Vẽ (Vector Stroke Outlines)
+- Trên góc trên bên phải của Trang chủ và các màn hình chính:
+  - Nút chuyển theme cồng kềnh trước đây đã được thay thế bằng **Menu 3 gạch nhỏ (☰)**, **Icon Theme đường nét mảnh**, và **Avatar người dùng mini**.
+  - **Chọt vào Menu 3 gạch (☰) hoặc Avatar**: Mở khay điều hướng trượt **Navigation Drawer Menu** (`ARKI / 25 - Navigation Drawer Menu [Light]`).
+  - **Bên trong Menu Drawer tích hợp bộ icon chung style hình vẽ (không dùng emoji màu mè)**:
+    1. **Avatar & Hồ sơ người dùng VIP**: Hiển thị ảnh chân dung cao cấp, tên **Alexander Vance**, huy hiệu `✦ BLACK DIAMOND #004`, email và nút icon liên kết ngoài (`↗`).
+    2. **Chuyển theme chuẩn nét vẽ vector**: Nút icon nét vẽ Mặt trời (`sun.png`) và Mặt trăng (`moon.png`) đơn sắc, chuyển đổi 2 chiều mượt mà (`SMART_ANIMATE`).
+    3. **Chuyển ngôn ngữ Swiss Typography**: Nút chuyển đổi tinh gọn song ngữ `VI` $\leftrightarrow$ `EN` chuẩn phong cách tối giản quốc tế.
+    4. **Ma trận Quick Actions 2×3 nét vẽ đồng bộ**:
+       - 6 thẻ icon đồng nhất độ dày nét (2px stroke line-art): Sổ tay lưu trữ (`bookmark`), Bản đồ nếp gấp (`map`), Bong bóng hội thoại (`speech`), Biểu đồ tăng trưởng (`chart`), Ổ khóa bảo mật (`lock`), Cửa thoát đăng xuất (`logout`).
+    5. **Đóng Menu**: Bấm nút **`✕`** hoặc chạm vào vùng màn hình nền tối bên trái để trượt đóng menu (`SLIDE_OUT`).
+
+### 🖼️ Chuẩn Hình Ảnh Full Chiều Ngang & Bo Góc Toàn Diện (Full-Width & Rounded Imagery)
+- **Fix cứng chiều ngang tràn viền (`width: 393px`, `x: 0`)**:
+  - Mọi hình ảnh kiến trúc chủ đạo (Hero Cover Onboarding, Thẻ kiến trúc Home Feed, Media Header Chi tiết dinh thự, Màn hình Video Tour 16:9, Bộ sưu tập ảnh Slider Fullscreen, và Graphic Art trên các màn hình chức năng) đều được căn chỉnh tràn viền toàn bộ chiều ngang màn hình điện thoại ($393\text{ px}$, $X = 0$).
+  - Mang lại trải nghiệm thị giác điện ảnh sống động, khoáng đạt, tương xứng với đẳng cấp bất động sản siêu sang.
+- **Bo góc nghệ thuật đồng bộ (Universal Corner Radii)**:
+  - **Hero & Media chính ($24 - 28\text{ px}$)**: Bo góc lớn mềm mại cho khối ảnh chính trên Onboarding, Chi tiết, Video và Sliders.
+  - **Thẻ phụ & Thumbnail ($16 - 20\text{ px}$)**: Bo góc hài hòa cho các ảnh xem trước (Thumbnails 1-3), thẻ bộ sưu tập đã lưu (Item Art 1-3), thẻ thứ cấp trên Feed.
+  - **Mẫu vật liệu ($14\text{ px}$)**: Bo góc tinh tế cho các ô mẫu vật liệu (Marble, Wood, Titanium).
+  - Khắc phục triệt để lỗi góc nhọn thô cứng và tình trạng chữ đè lên ảnh.
+
+### 🔘 Hệ Thống Icon Quy Chuẩn (Universal Icons — Chuẩn UX Quốc Tế)
+Theo nghiên cứu công thái học và chuẩn UI/UX quốc tế (Apple HIG, Google Material Design, giáo trình IE106 UIT), các biểu tượng phổ thông đã định hình sẵn phản xạ nhận diện trong não bộ người dùng, **hoàn toàn không cần chữ đi kèm**:
+- **Nút Quay Lại (`←`) chuẩn nút tròn kính mờ**:
+  - Loại bỏ hoàn toàn nhãn chữ dài dòng (`← Quay lại` / `← Back`).
+  - Chuẩn hóa thành nút tròn kính mờ kích thước chuẩn công thái học **$42 \times 42\text{ px}$** (`cornerRadius: 21`), tọa độ chuẩn ($X = 24, Y = 54$).
+  - Căn giữa hoàn hảo mũi tên `←` (Inter Bold 18pt), nền kính mờ chống lóa (`#FFFFFFCC` viền mảnh trên nền sáng, `#0F172ACC` viền mờ trên ảnh/nền tối).
+- **Hệ thống Icon Quy Chuẩn xuyên suốt ứng dụng**:
+  | Icon | Biểu Tượng | Ý Nghĩa Quy Chuẩn Tự Hiểu | Áp Dụng Trong ARKI |
+  |:---:|:---:|---|---|
+  | **Back** | `←` | Quay lại màn hình trước | Nút tròn $42 \times 42\text{ px}$ cố định góc trên bên trái tất cả 52 màn hình con |
+  | **Close** | `✕` | Đóng popup, thoát modal/drawer | Nút đóng Menu Drawer và tắt trình chiếu |
+  | **Search** | `🔍` | Tìm kiếm dữ liệu, từ khóa | Ô tìm kiếm thông minh trên Home Feed |
+  | **Menu** | `☰` | Mở danh mục điều hướng chính | Nút hamburger góc trên bên phải Trang chủ |
+  | **Theme** | `☀` / `☾` | Chuyển đổi giao diện Sáng / Tối | Nút icon đường nét trong Menu Drawer & Trang chủ |
+  | **Language**| `VI` / `EN` | Chuyển đổi ngôn ngữ hiển thị | Nút Swiss Typography trong Menu Drawer |
+  | **Share** | `↗` | Chia sẻ liên kết ra ngoài | Nút chia sẻ hồ sơ và liên kết dinh thự mã hóa |
+  | **Favorite**| `♡` | Lưu trữ vào bộ sưu tập yêu thích | Thẻ lưu trữ kiệt tác kiến trúc |
+- **Tiếng Việt là ngôn ngữ hiển thị mặc định**: 100% nội dung trên 52 màn hình Daylight Porcelain Theme được biên soạn bằng tiếng Việt chuyên ngành kiến trúc chuẩn mực, tự nhiên và sang trọng.
+
+### 📱 Chuẩn Gói Gọn Trong 1 Màn Hình Chiều Dọc & Header Tinh Gọn (Single Viewport Layout)
+- **Loại bỏ nút chuyển theme ở mọi trang phụ**: Theo đúng nguyên lý thiết kế tối giản, nút đổi theme không xuất hiện tràn lan trên từng trang con gây rối mắt. Người dùng đổi theme tập trung qua Menu Drawer (☰) hoặc Header Trang chủ.
+- **Header thoáng đãng & nút Back kính mờ**: Trên toàn bộ các trang chi tiết, bộ lọc, bản đồ, lưu trữ và hồ sơ cá nhân, header chỉ giữ lại nút quay lại tròn kính mờ (`←`), loại bỏ hoàn toàn các nút dư thừa.
+- **Nội dung gói gọn trọn vẹn trong 852px**: 
+  - Mọi nội dung, form nhập liệu, thẻ thông tin, mã QR và nút bấm hành động chính (Primary CTA) đều được tính toán căn chỉnh hoàn hảo trong chiều dọc màn hình ($393 \times 852\text{ px}$).
+  - Khắc phục 100% tình trạng tràn khung dọc (overflow) ở khối thông tin chi tiết (`Details Body` được khóa ở $552\text{ px}$, bottom chính xác $852\text{ px}$).
+  - Người dùng không phải scroll không cần thiết trên các màn hình chức năng (Onboarding, Login, FaceID, OTP, NDA, Filter, Details preview, Sliders, Viewing Booking, VIP Pass, Chat input, Calculator, Profile). Chỉ cuộn dọc ở các luồng cấp thiết như Bảng tin khám phá vô tận (Home Feed) và Lưới thư viện ảnh toàn cảnh (Grid).
 
 ---
 

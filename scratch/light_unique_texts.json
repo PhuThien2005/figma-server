@@ -1,0 +1,1037 @@
+[
+  {
+    "text": "9:41",
+    "screen": "ARKI / 01 - Splash [Light]",
+    "id": "1121:7988"
+  },
+  {
+    "text": "5G  100%",
+    "screen": "ARKI / 01 - Splash [Light]",
+    "id": "1121:7990"
+  },
+  {
+    "text": "A R K I",
+    "screen": "ARKI / 01 - Splash [Light]",
+    "id": "1121:7991"
+  },
+  {
+    "text": "Architectural Estates & Living",
+    "screen": "ARKI / 01 - Splash [Light]",
+    "id": "1121:7992"
+  },
+  {
+    "text": "Daylight Porcelain • 2026 Edition",
+    "screen": "ARKI / 01 - Splash [Light]",
+    "id": "1121:7995"
+  },
+  {
+    "text": "← Back",
+    "screen": "ARKI / 02 - Onboarding Pritzker [Light]",
+    "id": "1121:8002"
+  },
+  {
+    "text": "Curated by Pritzker Masters",
+    "screen": "ARKI / 02 - Onboarding Pritzker [Light]",
+    "id": "1121:8007"
+  },
+  {
+    "text": "Discover private oceanfront villas and pavilions crafted by legendary architects.",
+    "screen": "ARKI / 02 - Onboarding Pritzker [Light]",
+    "id": "1121:8008"
+  },
+  {
+    "text": "Step 1 of 3 • Pritzker Architecture",
+    "screen": "ARKI / 02 - Onboarding Pritzker [Light]",
+    "id": "1121:8009"
+  },
+  {
+    "text": "Continue  →",
+    "screen": "ARKI / 02 - Onboarding Pritzker [Light]",
+    "id": "1121:8011"
+  },
+  {
+    "text": "Cinematic 4K & VR Walkthroughs",
+    "screen": "ARKI / 03 - Onboarding 3D VR [Light]",
+    "id": "1121:8023"
+  },
+  {
+    "text": "Step inside each residence with 3D Matterport spatial scans and solar path studies.",
+    "screen": "ARKI / 03 - Onboarding 3D VR [Light]",
+    "id": "1121:8024"
+  },
+  {
+    "text": "Step 2 of 3 • Pritzker Architecture",
+    "screen": "ARKI / 03 - Onboarding 3D VR [Light]",
+    "id": "1121:8025"
+  },
+  {
+    "text": "Direct Studio Advisory",
+    "screen": "ARKI / 04 - Onboarding Advisory [Light]",
+    "id": "1121:8039"
+  },
+  {
+    "text": "Connect directly with lead architectural partners for tailored land acquisition.",
+    "screen": "ARKI / 04 - Onboarding Advisory [Light]",
+    "id": "1121:8040"
+  },
+  {
+    "text": "Step 3 of 3 • Pritzker Architecture",
+    "screen": "ARKI / 04 - Onboarding Advisory [Light]",
+    "id": "1121:8041"
+  },
+  {
+    "text": "Get Started  ✦",
+    "screen": "ARKI / 04 - Onboarding Advisory [Light]",
+    "id": "1121:8043"
+  },
+  {
+    "text": "Welcome to ARKI",
+    "screen": "ARKI / 05 - Authentication [Light]",
+    "id": "1121:8053"
+  },
+  {
+    "text": "Private Luxury Clientele Access",
+    "screen": "ARKI / 05 - Authentication [Light]",
+    "id": "1121:8054"
+  },
+  {
+    "text": "✉  alexander.vance@forbes-global.com",
+    "screen": "ARKI / 05 - Authentication [Light]",
+    "id": "1121:8056"
+  },
+  {
+    "text": "🔒  ••••••••••••••••••••",
+    "screen": "ARKI / 05 - Authentication [Light]",
+    "id": "1121:8058"
+  },
+  {
+    "text": "Sign In to Collection  ✦",
+    "screen": "ARKI / 05 - Authentication [Light]",
+    "id": "1121:8060"
+  },
+  {
+    "text": "Scan FaceID Signature  •  Biometrics",
+    "screen": "ARKI / 05 - Authentication [Light]",
+    "id": "1121:8062"
+  },
+  {
+    "text": "Enter as Observer Guest →",
+    "screen": "ARKI / 05 - Authentication [Light]",
+    "id": "1121:8064"
+  },
+  {
+    "text": "FaceID Biometric Gate",
+    "screen": "ARKI / 05b - Biometric FaceID Gate [Light]",
+    "id": "1121:8074"
+  },
+  {
+    "text": "🪪",
+    "screen": "ARKI / 05b - Biometric FaceID Gate [Light]",
+    "id": "1121:8077"
+  },
+  {
+    "text": "Biometric Verified • Alexander Vance",
+    "screen": "ARKI / 05b - Biometric FaceID Gate [Light]",
+    "id": "1121:8078"
+  },
+  {
+    "text": "Hardware Token #ARK-SEC-992 Authorized",
+    "screen": "ARKI / 05b - Biometric FaceID Gate [Light]",
+    "id": "1121:8079"
+  },
+  {
+    "text": "Authorize & Enter  ✦",
+    "screen": "ARKI / 05b - Biometric FaceID Gate [Light]",
+    "id": "1121:8081"
+  },
+  {
+    "text": "Security Token Key",
+    "screen": "ARKI / 05c - OTP Security Verification [Light]",
+    "id": "1121:8091"
+  },
+  {
+    "text": "Enter 6-digit code sent to private terminal",
+    "screen": "ARKI / 05c - OTP Security Verification [Light]",
+    "id": "1121:8092"
+  },
+  {
+    "text": "8",
+    "screen": "ARKI / 05c - OTP Security Verification [Light]",
+    "id": "1121:8094"
+  },
+  {
+    "text": "2",
+    "screen": "ARKI / 05c - OTP Security Verification [Light]",
+    "id": "1121:8098"
+  },
+  {
+    "text": "1",
+    "screen": "ARKI / 05c - OTP Security Verification [Light]",
+    "id": "1121:8100"
+  },
+  {
+    "text": "0",
+    "screen": "ARKI / 05c - OTP Security Verification [Light]",
+    "id": "1121:8102"
+  },
+  {
+    "text": "4",
+    "screen": "ARKI / 05c - OTP Security Verification [Light]",
+    "id": "1121:8104"
+  },
+  {
+    "text": "⏱ Resend private token in 0:42",
+    "screen": "ARKI / 05c - OTP Security Verification [Light]",
+    "id": "1121:8105"
+  },
+  {
+    "text": "1       2       3\n\n  4       5       6\n\n  7       8       9\n\n          0       ⌫",
+    "screen": "ARKI / 05c - OTP Security Verification [Light]",
+    "id": "1121:8107"
+  },
+  {
+    "text": "Confirm Authentication  ✦",
+    "screen": "ARKI / 05c - OTP Security Verification [Light]",
+    "id": "1121:8109"
+  },
+  {
+    "text": "Confidentiality NDA",
+    "screen": "ARKI / 05d - VIP Advisory NDA & Terms [Light]",
+    "id": "1121:8119"
+  },
+  {
+    "text": "SOTHEBY’S & ARKI PRIVATE PROTOCOL\n\n1. NON-DISCLOSURE OF VALUATIONS\nAll estate prices ($2.5M - $12M) and seller identities are strictly protected under Swiss Banking Law Art. 47.\n\n2. DIGITAL SIGNATURE VERIFICATION\nBy proceeding, user Alexander Vance authorizes biometric tracking for all architectural drawing downloads.\n\n3. ESCROW DISPUTE RESOLUTION\nAll earnest deposits are locked in multi-signature cryptographic escrow smart contracts.",
+    "screen": "ARKI / 05d - VIP Advisory NDA & Terms [Light]",
+    "id": "1121:8121"
+  },
+  {
+    "text": "✓  I accept terms of confidential off-market viewing",
+    "screen": "ARKI / 05d - VIP Advisory NDA & Terms [Light]",
+    "id": "1121:8123"
+  },
+  {
+    "text": "Execute NDA & Enter  ✦",
+    "screen": "ARKI / 05d - VIP Advisory NDA & Terms [Light]",
+    "id": "1121:8125"
+  },
+  {
+    "text": "🔍  Search Tadao Ando, Oceanfront, Ba Vi...",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8135"
+  },
+  {
+    "text": "✦ All",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8137"
+  },
+  {
+    "text": "🌊 Ocean",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8139"
+  },
+  {
+    "text": "🏛 Brutalist",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8141"
+  },
+  {
+    "text": "🌲 Biophilic",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8143"
+  },
+  {
+    "text": "The Glass Sanctuary Villa",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8146"
+  },
+  {
+    "text": "Son Tra Coastline • KTS Tadao Ando • 850 m²",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8147"
+  },
+  {
+    "text": "$4,250,000 USD",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8148"
+  },
+  {
+    "text": "View Estate →",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8150"
+  },
+  {
+    "text": "Cedar Pavilion Atrium\n$3,800,000 • Kengo Kuma",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8153"
+  },
+  {
+    "text": "Explore ✦",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8155"
+  },
+  {
+    "text": "✦ Feed      🗺 Map      ♡ Saved      👤 VIP",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1121:8157"
+  },
+  {
+    "text": "☰",
+    "screen": "ARKI / 06 - Home Feed (All Works) [Light]",
+    "id": "1135:80"
+  },
+  {
+    "text": "Architectural Criteria",
+    "screen": "ARKI / 07 - Search & Faceted Filter [Light]",
+    "id": "1121:8266"
+  },
+  {
+    "text": "PRICE RANGE: $2,500,000 — $12,000,000",
+    "screen": "ARKI / 07 - Search & Faceted Filter [Light]",
+    "id": "1121:8267"
+  },
+  {
+    "text": "MASTER ARCHITECT STUDIO",
+    "screen": "ARKI / 07 - Search & Faceted Filter [Light]",
+    "id": "1121:8272"
+  },
+  {
+    "text": "✓ Tadao Ando",
+    "screen": "ARKI / 07 - Search & Faceted Filter [Light]",
+    "id": "1121:8274"
+  },
+  {
+    "text": "Kengo Kuma",
+    "screen": "ARKI / 07 - Search & Faceted Filter [Light]",
+    "id": "1121:8276"
+  },
+  {
+    "text": "Zaha Hadid",
+    "screen": "ARKI / 07 - Search & Faceted Filter [Light]",
+    "id": "1121:8278"
+  },
+  {
+    "text": "ESTATE AMENITIES",
+    "screen": "ARKI / 07 - Search & Faceted Filter [Light]",
+    "id": "1121:8279"
+  },
+  {
+    "text": "🚁 Private Heli-pad",
+    "screen": "ARKI / 07 - Search & Faceted Filter [Light]",
+    "id": "1121:8281"
+  },
+  {
+    "text": "🏊 35m Infinity Pool",
+    "screen": "ARKI / 07 - Search & Faceted Filter [Light]",
+    "id": "1121:8283"
+  },
+  {
+    "text": "🍷 Wine Cellar",
+    "screen": "ARKI / 07 - Search & Faceted Filter [Light]",
+    "id": "1121:8285"
+  },
+  {
+    "text": "Apply Filters (Show 14 Estates)  ✦",
+    "screen": "ARKI / 07 - Search & Faceted Filter [Light]",
+    "id": "1121:8287"
+  },
+  {
+    "text": "Filtered Masterpieces (14)",
+    "screen": "ARKI / 07b - Active Search Results [Light]",
+    "id": "1121:8297"
+  },
+  {
+    "text": "Showing 14 residences matching Tadao Ando & Oceanfront",
+    "screen": "ARKI / 07b - Active Search Results [Light]",
+    "id": "1121:8298"
+  },
+  {
+    "text": "Access Feature  ✦",
+    "screen": "ARKI / 07b - Active Search Results [Light]",
+    "id": "1121:8302"
+  },
+  {
+    "text": "📍 $4.25M Ando",
+    "screen": "ARKI / 08 - Estate Map View [Light]",
+    "id": "1121:8314"
+  },
+  {
+    "text": "📍 $3.80M Kuma",
+    "screen": "ARKI / 08 - Estate Map View [Light]",
+    "id": "1121:8316"
+  },
+  {
+    "text": "The Glass Sanctuary Villa • $4.25M\nSon Tra Coastline • 850 m² • 5 Suites",
+    "screen": "ARKI / 08 - Estate Map View [Light]",
+    "id": "1121:8318"
+  },
+  {
+    "text": "Pin Details: Glass Sanctuary",
+    "screen": "ARKI / 08b - Map Selected Pin Sheet [Light]",
+    "id": "1121:8330"
+  },
+  {
+    "text": "Son Tra Bay • 850 m² • $4,250,000 • Heli-pad Included",
+    "screen": "ARKI / 08b - Map Selected Pin Sheet [Light]",
+    "id": "1121:8331"
+  },
+  {
+    "text": "$4,250,000 • KTS Tadao Ando • Son Tra Peninsula",
+    "screen": "ARKI / 09 - Property Details (Tadao Ando) [Light]",
+    "id": "1121:8348"
+  },
+  {
+    "text": "▶ Watch 4K Tour",
+    "screen": "ARKI / 09 - Property Details (Tadao Ando) [Light]",
+    "id": "1121:8350"
+  },
+  {
+    "text": "🥽 3D Matterport",
+    "screen": "ARKI / 09 - Property Details (Tadao Ando) [Light]",
+    "id": "1121:8352"
+  },
+  {
+    "text": "Land: 1,450 m²   •   Built: 850 m²   •   Year: 2026\nCeiling: 7.2m   •   Pool: 35m Saltwater   •   Heli-pad: Yes",
+    "screen": "ARKI / 09 - Property Details (Tadao Ando) [Light]",
+    "id": "1121:8357"
+  },
+  {
+    "text": "Schedule Private Viewing  ✦",
+    "screen": "ARKI / 09 - Property Details (Tadao Ando) [Light]",
+    "id": "1121:8359"
+  },
+  {
+    "text": "←",
+    "screen": "ARKI / 09 - Property Details (Tadao Ando) [Light]",
+    "id": "1135:352"
+  },
+  {
+    "text": "Cedar Pavilion Atrium",
+    "screen": "ARKI / 09b - Property Details (Kengo Kuma) [Light]",
+    "id": "1121:8371"
+  },
+  {
+    "text": "$3,800,000 • KTS Kengo Kuma • Ba Vi Mountain",
+    "screen": "ARKI / 09b - Property Details (Kengo Kuma) [Light]",
+    "id": "1121:8372"
+  },
+  {
+    "text": "Fluid Dune Villa",
+    "screen": "ARKI / 09c - Property Details (Zaha Hadid) [Light]",
+    "id": "1121:8395"
+  },
+  {
+    "text": "$5,900,000 • Zaha Hadid Architects • Mui Ne Coast",
+    "screen": "ARKI / 09c - Property Details (Zaha Hadid) [Light]",
+    "id": "1121:8396"
+  },
+  {
+    "text": "Studio Tadao Ando",
+    "screen": "ARKI / 10 - Architect Philosophy [Light]",
+    "id": "1121:8417"
+  },
+  {
+    "text": "\"Architecture must provide a sanctuary where nature, light, and geometry merge.\"",
+    "screen": "ARKI / 10 - Architect Philosophy [Light]",
+    "id": "1121:8418"
+  },
+  {
+    "text": "Level 1 Architectural Plan",
+    "screen": "ARKI / 10b - Blueprint Level 1 Floorplan [Light]",
+    "id": "1121:8432"
+  },
+  {
+    "text": "Scale 1:100 • 850 m² • 5 Suites • Cantilever Pool",
+    "screen": "ARKI / 10b - Blueprint Level 1 Floorplan [Light]",
+    "id": "1121:8433"
+  },
+  {
+    "text": "ZONE A: LIVING ATRIUM\n140 m² • Ceiling +7.2m\nTravertine Navona Finish",
+    "screen": "ARKI / 10b - Blueprint Level 1 Floorplan [Light]",
+    "id": "1121:8436"
+  },
+  {
+    "text": "CANTILEVER POOL 35m x 4.5m\nOverflow Edge Over Ocean Horizon",
+    "screen": "ARKI / 10b - Blueprint Level 1 Floorplan [Light]",
+    "id": "1121:8438"
+  },
+  {
+    "text": "↑ N (North Orientation 108° ESE)   •   Scale 1:100",
+    "screen": "ARKI / 10b - Blueprint Level 1 Floorplan [Light]",
+    "id": "1121:8439"
+  },
+  {
+    "text": "Download High-Res CAD DWG / PDF  ✦",
+    "screen": "ARKI / 10b - Blueprint Level 1 Floorplan [Light]",
+    "id": "1121:8441"
+  },
+  {
+    "text": "Penthouse & Heli-pad Plan",
+    "screen": "ARKI / 10c - Blueprint Penthouse & Roof [Light]",
+    "id": "1121:8451"
+  },
+  {
+    "text": "Approach Angle 108° ESE • Solar Glass Roof Terrace",
+    "screen": "ARKI / 10c - Blueprint Penthouse & Roof [Light]",
+    "id": "1121:8452"
+  },
+  {
+    "text": "Material Board & Finishes",
+    "screen": "ARKI / 10d - Materials & Finishes [Light]",
+    "id": "1121:8470"
+  },
+  {
+    "text": "Navona Travertine Stone\nRome, Italy • Honed Finish",
+    "screen": "ARKI / 10d - Materials & Finishes [Light]",
+    "id": "1121:8473"
+  },
+  {
+    "text": "Shou Sugi Ban Charred Wood\nKyoto, Japan • Fire Treated",
+    "screen": "ARKI / 10d - Materials & Finishes [Light]",
+    "id": "1121:8476"
+  },
+  {
+    "text": "Raw Aerospace Titanium 4mm\nKobe, Japan • Salt Resistant",
+    "screen": "ARKI / 10d - Materials & Finishes [Light]",
+    "id": "1121:8479"
+  },
+  {
+    "text": "Triple Glazed Low-E Solar Glass\nSaint-Gobain • 99.8% UV Block",
+    "screen": "ARKI / 10d - Materials & Finishes [Light]",
+    "id": "1121:8482"
+  },
+  {
+    "text": "Order Physical Sample Box  ✦",
+    "screen": "ARKI / 10d - Materials & Finishes [Light]",
+    "id": "1121:8484"
+  },
+  {
+    "text": "24-Hour Solar Radiation",
+    "screen": "ARKI / 10e - Solar Path 24h Study [Light]",
+    "id": "1121:8494"
+  },
+  {
+    "text": "☀️\n06:00 AM (Dawn)\nSun Angle 18° E",
+    "screen": "ARKI / 10e - Solar Path 24h Study [Light]",
+    "id": "1121:8496"
+  },
+  {
+    "text": "☀️\n12:00 PM (Zenith)\nDeep Cantilever Shade",
+    "screen": "ARKI / 10e - Solar Path 24h Study [Light]",
+    "id": "1121:8497"
+  },
+  {
+    "text": "⚡ 84% Passive Cooling Efficiency\n48.5 kWh/day Clean Rooftop Solar Generation",
+    "screen": "ARKI / 10e - Solar Path 24h Study [Light]",
+    "id": "1121:8499"
+  },
+  {
+    "text": "View Complete Climatology Report  ✦",
+    "screen": "ARKI / 10e - Solar Path 24h Study [Light]",
+    "id": "1121:8501"
+  },
+  {
+    "text": "◉ Walk to Terrace",
+    "screen": "ARKI / 11 - 3D Matterport VR [Light]",
+    "id": "1121:8513"
+  },
+  {
+    "text": "◉ Enter Living Room",
+    "screen": "ARKI / 11 - 3D Matterport VR [Light]",
+    "id": "1121:8515"
+  },
+  {
+    "text": "🥽 Apple Vision Pro / Meta Quest 3 Ready\nGyroscope Spatial Tracking Active",
+    "screen": "ARKI / 11 - 3D Matterport VR [Light]",
+    "id": "1121:8517"
+  },
+  {
+    "text": "3D Isometric Dollhouse",
+    "screen": "ARKI / 11b - 3D VR Dollhouse View [Light]",
+    "id": "1121:8527"
+  },
+  {
+    "text": "Full Multi-Level Cutaway • Structure & Plumbing Layers",
+    "screen": "ARKI / 11b - 3D VR Dollhouse View [Light]",
+    "id": "1121:8528"
+  },
+  {
+    "text": "02:45 / 04:10 • 4K HDR 60fps • Dolby Atmos 7.1.4",
+    "screen": "ARKI / 12 - Video Tour Player [Light]",
+    "id": "1121:8545"
+  },
+  {
+    "text": "✕ Exit Video Tour",
+    "screen": "ARKI / 12 - Video Tour Player [Light]",
+    "id": "1121:8547"
+  },
+  {
+    "text": "Slide 1 of 5",
+    "screen": "ARKI / 13 - Slider 1 (Living Atrium) [Light]",
+    "id": "1121:8574"
+  },
+  {
+    "text": "Photo 1/5: Living Atrium",
+    "screen": "ARKI / 13 - Slider 1 (Living Atrium) [Light]",
+    "id": "1121:8575"
+  },
+  {
+    "text": "7.2m Ceiling Height • Navona Travertine Walls",
+    "screen": "ARKI / 13 - Slider 1 (Living Atrium) [Light]",
+    "id": "1121:8576"
+  },
+  {
+    "text": "Next Photo →",
+    "screen": "ARKI / 13 - Slider 1 (Living Atrium) [Light]",
+    "id": "1121:8578"
+  },
+  {
+    "text": "Slide 2 of 5",
+    "screen": "ARKI / 14 - Slider 2 (Boffi Kitchen) [Light]",
+    "id": "1121:8590"
+  },
+  {
+    "text": "Photo 2/5: Boffi Kitchen",
+    "screen": "ARKI / 14 - Slider 2 (Boffi Kitchen) [Light]",
+    "id": "1121:8591"
+  },
+  {
+    "text": "4.8m Calacatta Monolith Island • Gaggenau 400 Series",
+    "screen": "ARKI / 14 - Slider 2 (Boffi Kitchen) [Light]",
+    "id": "1121:8592"
+  },
+  {
+    "text": "Slide 3 of 5",
+    "screen": "ARKI / 15 - Slider 3 (Sunset Infinity Pool) [Light]",
+    "id": "1121:8606"
+  },
+  {
+    "text": "Photo 3/5: Infinity Pool",
+    "screen": "ARKI / 15 - Slider 3 (Sunset Infinity Pool) [Light]",
+    "id": "1121:8607"
+  },
+  {
+    "text": "35m Cantilever Saltwater Pool Facing Sunset Horizon",
+    "screen": "ARKI / 15 - Slider 3 (Sunset Infinity Pool) [Light]",
+    "id": "1121:8608"
+  },
+  {
+    "text": "Slide 4 of 5",
+    "screen": "ARKI / 15b - Slider 4 (Master Sanctuary) [Light]",
+    "id": "1121:8622"
+  },
+  {
+    "text": "Photo 4/5: Master Sanctuary",
+    "screen": "ARKI / 15b - Slider 4 (Master Sanctuary) [Light]",
+    "id": "1121:8623"
+  },
+  {
+    "text": "180° Ocean Glazing • Private Japanese Hinoki Soaking Tub",
+    "screen": "ARKI / 15b - Slider 4 (Master Sanctuary) [Light]",
+    "id": "1121:8624"
+  },
+  {
+    "text": "Slide 5 of 5",
+    "screen": "ARKI / 15c - Slider 5 (Wine Cellar) [Light]",
+    "id": "1121:8638"
+  },
+  {
+    "text": "Photo 5/5: Sommelier Cellar",
+    "screen": "ARKI / 15c - Slider 5 (Wine Cellar) [Light]",
+    "id": "1121:8639"
+  },
+  {
+    "text": "2,400 Bottles Capacity • 14°C Controlled Climate",
+    "screen": "ARKI / 15c - Slider 5 (Wine Cellar) [Light]",
+    "id": "1121:8640"
+  },
+  {
+    "text": "Schedule Private Viewing",
+    "screen": "ARKI / 16 - Schedule Private Viewing [Light]",
+    "id": "1121:8652"
+  },
+  {
+    "text": "OCTOBER 2026\n\nMo   Tu   We   Th   Fr   Sa   Su\n12   13   14   15  [16]  17   18\n19   20   21   22   23   24   25",
+    "screen": "ARKI / 16 - Schedule Private Viewing [Light]",
+    "id": "1121:8654"
+  },
+  {
+    "text": "SELECT TIME SLOT (VIP ACCESS)",
+    "screen": "ARKI / 16 - Schedule Private Viewing [Light]",
+    "id": "1121:8655"
+  },
+  {
+    "text": "10:00 AM",
+    "screen": "ARKI / 16 - Schedule Private Viewing [Light]",
+    "id": "1121:8657"
+  },
+  {
+    "text": "✓ 14:30 PM (Selected)",
+    "screen": "ARKI / 16 - Schedule Private Viewing [Light]",
+    "id": "1121:8659"
+  },
+  {
+    "text": "Confirm Viewing Request  ✦",
+    "screen": "ARKI / 16 - Schedule Private Viewing [Light]",
+    "id": "1121:8661"
+  },
+  {
+    "text": "Transportation Logistics",
+    "screen": "ARKI / 16b - Arrival Logistics [Light]",
+    "id": "1121:8671"
+  },
+  {
+    "text": "Bell 429 Helicopter • 60ft Sunseeker Yacht • Rolls-Royce",
+    "screen": "ARKI / 16b - Arrival Logistics [Light]",
+    "id": "1121:8672"
+  },
+  {
+    "text": "✓ Viewing Confirmed",
+    "screen": "ARKI / 17 - VIP Pass Confirmation [Light]",
+    "id": "1121:8686"
+  },
+  {
+    "text": "VIP BOARDING PASS #ARK-8821\n\nGUEST: Alexander Vance\nESTATE: The Glass Sanctuary Villa\nDATE: Wednesday, Oct 16 • 14:30\nTRANSIT: Private Helicopter Landing\nHOST: Master Architect Advisory",
+    "screen": "ARKI / 17 - VIP Pass Confirmation [Light]",
+    "id": "1121:8688"
+  },
+  {
+    "text": "☵ ☲ ☳\nQR PASS\n☴ ☱ ☲",
+    "screen": "ARKI / 17 - VIP Pass Confirmation [Light]",
+    "id": "1121:8690"
+  },
+  {
+    "text": "Add to Apple Wallet  ✦",
+    "screen": "ARKI / 17 - VIP Pass Confirmation [Light]",
+    "id": "1121:8692"
+  },
+  {
+    "text": "Apple Wallet Passbook",
+    "screen": "ARKI / 17b - Apple Wallet Pass [Light]",
+    "id": "1121:8702"
+  },
+  {
+    "text": "NFC Contactless Pass #ARK-8821 • Ready for Transit",
+    "screen": "ARKI / 17b - Apple Wallet Pass [Light]",
+    "id": "1121:8703"
+  },
+  {
+    "text": "Saved Masterpieces (4)",
+    "screen": "ARKI / 18 - Saved Architecture [Light]",
+    "id": "1121:8717"
+  },
+  {
+    "text": "Total Valuation: $17,050,000 USD",
+    "screen": "ARKI / 18 - Saved Architecture [Light]",
+    "id": "1121:8718"
+  },
+  {
+    "text": "The Glass Sanctuary\n$4,250,000 • Tadao Ando",
+    "screen": "ARKI / 18 - Saved Architecture [Light]",
+    "id": "1121:8721"
+  },
+  {
+    "text": "Fluid Dune Villa\n$5,900,000 • Zaha Hadid",
+    "screen": "ARKI / 18 - Saved Architecture [Light]",
+    "id": "1121:8727"
+  },
+  {
+    "text": "Create New Curated Folder  ✦",
+    "screen": "ARKI / 18 - Saved Architecture [Light]",
+    "id": "1121:8729"
+  },
+  {
+    "text": "New Curated Collection",
+    "screen": "ARKI / 18b - Create Curated Collection [Light]",
+    "id": "1121:8739"
+  },
+  {
+    "text": "Folder: Coastal Havens 2027 • Restricted Access",
+    "screen": "ARKI / 18b - Create Curated Collection [Light]",
+    "id": "1121:8740"
+  },
+  {
+    "text": "Studio Tadao Ando Partners",
+    "screen": "ARKI / 19 - 1-on-1 Architect Chat [Light]",
+    "id": "1121:8754"
+  },
+  {
+    "text": "Good afternoon Mr. Vance. The cantilevered infinity pool at Son Tra can be extended +4m into the cliffside.",
+    "screen": "ARKI / 19 - 1-on-1 Architect Chat [Light]",
+    "id": "1121:8756"
+  },
+  {
+    "text": "Can we also install triple-glazed solar Low-E panels for the master suite?",
+    "screen": "ARKI / 19 - 1-on-1 Architect Chat [Light]",
+    "id": "1121:8758"
+  },
+  {
+    "text": "Type a message to Lead Studio Partner...",
+    "screen": "ARKI / 19 - 1-on-1 Architect Chat [Light]",
+    "id": "1121:8760"
+  },
+  {
+    "text": "Live Architectural Call",
+    "screen": "ARKI / 19b - Live Video Consultation [Light]",
+    "id": "1121:8770"
+  },
+  {
+    "text": "Video Conference with Lead Design Studio • Blueprint Share",
+    "screen": "ARKI / 19b - Live Video Consultation [Light]",
+    "id": "1121:8771"
+  },
+  {
+    "text": "Bespoke Modification Request",
+    "screen": "ARKI / 19c - Custom Modification Request [Light]",
+    "id": "1121:8785"
+  },
+  {
+    "text": "Extend cantilever pool by +4m • Solar glass upgrade",
+    "screen": "ARKI / 19c - Custom Modification Request [Light]",
+    "id": "1121:8786"
+  },
+  {
+    "text": "Investment Estimator",
+    "screen": "ARKI / 20 - Financial Calculator [Light]",
+    "id": "1121:8800"
+  },
+  {
+    "text": "ESTIMATED MONTHLY PAYMENT",
+    "screen": "ARKI / 20 - Financial Calculator [Light]",
+    "id": "1121:8802"
+  },
+  {
+    "text": "$18,450 / month",
+    "screen": "ARKI / 20 - Financial Calculator [Light]",
+    "id": "1121:8803"
+  },
+  {
+    "text": "Purchase: $4,250,000 • 30% Down ($1,275,000) • 20Y @ 4.8%",
+    "screen": "ARKI / 20 - Financial Calculator [Light]",
+    "id": "1121:8804"
+  },
+  {
+    "text": "Principal & Interest: $15,200\nProperty Insurance (Lloyds): $1,450\nPrivate Concierge HOA: $1,800\n\nTotal Estimated Capital: $4,840,000",
+    "screen": "ARKI / 20 - Financial Calculator [Light]",
+    "id": "1121:8806"
+  },
+  {
+    "text": "Lock Financing with Private Banking  ✦",
+    "screen": "ARKI / 20 - Financial Calculator [Light]",
+    "id": "1121:8808"
+  },
+  {
+    "text": "Multi-Currency Escrow",
+    "screen": "ARKI / 20b - Multi-Currency & Crypto Escrow [Light]",
+    "id": "1121:8818"
+  },
+  {
+    "text": "$4.25M USD | €3.92M EUR | 68.2 BTC | 1,180 ETH",
+    "screen": "ARKI / 20b - Multi-Currency & Crypto Escrow [Light]",
+    "id": "1121:8819"
+  },
+  {
+    "text": "10-Year Growth Forecast",
+    "screen": "ARKI / 20c - 10-Year Capital Appreciation [Light]",
+    "id": "1121:8833"
+  },
+  {
+    "text": "Historical +14.2% YoY • Projected 2036 Value: $11.8M",
+    "screen": "ARKI / 20c - 10-Year Capital Appreciation [Light]",
+    "id": "1121:8834"
+  },
+  {
+    "text": "Alexander Vance",
+    "screen": "ARKI / 21 - VIP Client Profile [Light]",
+    "id": "1121:8850"
+  },
+  {
+    "text": "Black Diamond Patron #004",
+    "screen": "ARKI / 21 - VIP Client Profile [Light]",
+    "id": "1121:8851"
+  },
+  {
+    "text": "3 Estates Owned      4 Wishlist      2 Drops Reserved",
+    "screen": "ARKI / 21 - VIP Client Profile [Light]",
+    "id": "1121:8853"
+  },
+  {
+    "text": "Concierge Privileges  →",
+    "screen": "ARKI / 21 - VIP Client Profile [Light]",
+    "id": "1121:8855"
+  },
+  {
+    "text": "Biometric Security & Encryption  →",
+    "screen": "ARKI / 21 - VIP Client Profile [Light]",
+    "id": "1121:8857"
+  },
+  {
+    "text": "Tax & Multi-Currency Escrow  →",
+    "screen": "ARKI / 21 - VIP Client Profile [Light]",
+    "id": "1121:8859"
+  },
+  {
+    "text": "Sign Out  →",
+    "screen": "ARKI / 21 - VIP Client Profile [Light]",
+    "id": "1121:8861"
+  },
+  {
+    "text": "Black Diamond Privileges",
+    "screen": "ARKI / 21b - Concierge Privileges [Light]",
+    "id": "1121:8871"
+  },
+  {
+    "text": "24/7 Global Architectural Attaché • Sotheby’s Private Drops",
+    "screen": "ARKI / 21b - Concierge Privileges [Light]",
+    "id": "1121:8872"
+  },
+  {
+    "text": "Security & Encryption",
+    "screen": "ARKI / 21c - Biometric Security Settings [Light]",
+    "id": "1121:8886"
+  },
+  {
+    "text": "256-bit AES Multi-sig Escrow • FaceID Mandatory",
+    "screen": "ARKI / 21c - Biometric Security Settings [Light]",
+    "id": "1121:8887"
+  },
+  {
+    "text": "Private Drop Alerts",
+    "screen": "ARKI / 22 - Notification Center [Light]",
+    "id": "1121:8901"
+  },
+  {
+    "text": "3 Unread Invitations: Off-market Tadao Ando Villa Drop",
+    "screen": "ARKI / 22 - Notification Center [Light]",
+    "id": "1121:8902"
+  },
+  {
+    "text": "Encrypted Estate Sharing",
+    "screen": "ARKI / 22b - Share Estate Link & QR [Light]",
+    "id": "1121:8916"
+  },
+  {
+    "text": "Single-use Time-locked Link with Biometric Watermark",
+    "screen": "ARKI / 22b - Share Estate Link & QR [Light]",
+    "id": "1121:8917"
+  },
+  {
+    "text": "Architectural Gallery (9)",
+    "screen": "ARKI / 23 - Fullscreen Architectural Grid [Light]",
+    "id": "1121:8931"
+  },
+  {
+    "text": "Curated 9-Photo Matrix • Exterior, Interior, Structural",
+    "screen": "ARKI / 23 - Fullscreen Architectural Grid [Light]",
+    "id": "1121:8932"
+  },
+  {
+    "text": "Offline 3D VR Storage",
+    "screen": "ARKI / 24 - Offline VR Spatial Cache [Light]",
+    "id": "1121:8946"
+  },
+  {
+    "text": "Son Tra Glass Sanctuary (1.2 GB Cached for In-flight)",
+    "screen": "ARKI / 24 - Offline VR Spatial Cache [Light]",
+    "id": "1121:8947"
+  },
+  {
+    "text": "VIP",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:380"
+  },
+  {
+    "text": "✕",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:382"
+  },
+  {
+    "text": "✦ BLACK DIAMOND #004",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:387"
+  },
+  {
+    "text": "alexander@forbes-global.com",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:388"
+  },
+  {
+    "text": "THEME",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:391"
+  },
+  {
+    "text": "LANGUAGE",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:392"
+  },
+  {
+    "text": "VI",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:400"
+  },
+  {
+    "text": "EN",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:402"
+  },
+  {
+    "text": "QUICK ACTIONS",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:404"
+  },
+  {
+    "text": "Đã lưu (4)",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:407"
+  },
+  {
+    "text": "→",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:409"
+  },
+  {
+    "text": "Bản đồ Sơn Trà",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:412"
+  },
+  {
+    "text": "Tư vấn KTS",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:417"
+  },
+  {
+    "text": "●",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:419"
+  },
+  {
+    "text": "Ký quỹ Escrow",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:422"
+  },
+  {
+    "text": "FaceID Token",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:427"
+  },
+  {
+    "text": "Đăng xuất",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:432"
+  },
+  {
+    "text": "⎋",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:434"
+  },
+  {
+    "text": "ARKI Luxury Living v2.4",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:435"
+  },
+  {
+    "text": "✦ Minimalist Vector Line Icon Architecture",
+    "screen": "ARKI / 25 - Navigation Drawer Menu [Light]",
+    "id": "1135:436"
+  }
+]
