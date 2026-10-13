@@ -1,8 +1,8 @@
 # 🏛️ TÀI LIỆU ĐẶC TẢ CHI TIẾT 112 MÀN HÌNH HỆ THỐNG ARKI VIỆT NAM (ARKI 112-SCREEN ARCHITECTURE & SPECIFICATION)
 
 > **Dự án:** Nền tảng Bất động sản Dinh thự & Tham quan Không gian 360° ARKI Việt Nam  
-> **Phiên bản:** v4.0.0 (Master Components, Design Tokens, Icon-First, Pure White #FFFFFF, Vietnamese Default)  
-> **Tài liệu tham chiếu:** Thiết kế trực tiếp trên Canvas Figma Desktop  
+> **Phiên bản:** v4.5.0 (100% Master Component Instances Toàn Diện 112 Màn Hình, Pure Vietnamese Default, Dense Prototype Mesh >890 Wires)  
+> **Tài liệu tham chiếu:** Thiết kế trực tiếp trên Canvas Figma Desktop (`main page`)  
 > **Repository:** `https://github.com/PhuThien2005/figma-server.git`  
 > **Ghi chú cho User:** Bạn có thể tùy chỉnh hoặc thêm bớt các mô tả trong file này để điều chỉnh nghiệp vụ dự án.
 
