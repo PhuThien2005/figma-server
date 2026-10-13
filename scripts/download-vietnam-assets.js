@@ -1,0 +1,205 @@
+import fs from 'fs';
+import path from 'path';
+import https from 'https';
+
+const ASSETS_DIR = path.resolve('assets/vietnam');
+if (!fs.existsSync(ASSETS_DIR)) {
+  fs.mkdirSync(ASSETS_DIR, { recursive: true });
+}
+
+export const VIETNAM_AUTHENTIC_ASSETS = {
+  estates: [
+    {
+      id: 'villa_thao_dien_riverside',
+      name: 'The Riverfront Bamboo Sanctuary — Thao Dien, Saigon',
+      nameVi: 'Dinh Thự Ven Sông Sài Gòn — Thảo Điền, TP.HCM',
+      type: 'TROPICAL RIVERSIDE ESTATE',
+      typeVi: 'DINH THỰ VEN SÔNG NHIỆT ĐỚI',
+      price: '$5,850,000',
+      priceVi: '145 TỶ VNĐ',
+      area: '920 m²',
+      architect: 'Vo Trong Nghia Architects (VTN)',
+      architectVi: 'KTS Võ Trọng Nghĩa & Cộng Sự',
+      location: 'Nguyen Van Huong, Thao Dien, Thu Duc City',
+      locationVi: 'Nguyễn Văn Hưởng, P. Thảo Điền, TP. Thủ Đức',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/8/81/Saigon_skyline.png',
+      localFile: 'villa_thao_dien.png'
+    },
+    {
+      id: 'villa_ba_dinh_heritage',
+      name: 'Ba Dinh French Colonial Manor — Hanoi',
+      nameVi: 'Biệt Thự Pháp Cổ Ba Đình — Hà Nội',
+      type: 'HERITAGE COLONIAL MANOR',
+      typeVi: 'DINH THỰ DI SẢN KIẾN TRÚC PHÁP CỔ',
+      price: '$8,200,000',
+      priceVi: '205 TỶ VNĐ',
+      area: '1,150 m²',
+      architect: 'Preserved Hanoi Heritage',
+      architectVi: 'Bảo Tồn Di Sản Kiến Trúc Hà Nội',
+      location: 'Ba Dinh & Tay Ho District, Hanoi',
+      locationVi: 'Khu Ngoại Giao Đoàn & Hồ Tây, Hà Nội',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Hanoi_Colonial_villa.jpg',
+      localFile: 'villa_ba_dinh.jpg'
+    },
+    {
+      id: 'resort_hoi_an_ancient',
+      name: 'Hoi An Courtyard Heritage Estate — Quang Nam',
+      nameVi: 'Nhà Rường Di Sản Phố Cổ — Hội An, Quảng Nam',
+      type: 'ANCIENT WOODEN COURTYARD',
+      typeVi: 'NHÀ RƯỜNG GỖ MÁI NGÓI ÂM DƯƠNG',
+      price: '$4,500,000',
+      priceVi: '112 TỶ VNĐ',
+      area: '1,400 m²',
+      architect: 'Hoi An Master Craftsmen & 1+1>2 Architects',
+      architectVi: 'Nghệ Nhân Làng Mộc Kim Bồng & KTS Hoàng Thúc Hào',
+      location: 'Tran Phu / Nguyen Thai Hoc, Hoi An Ancient Town',
+      locationVi: 'Trần Phú / Nguyễn Thái Học, Phố Cổ Hội An',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Hoi_An_Ancient_Town%2C_Vietnam_%286944581966%29.jpg',
+      localFile: 'resort_hoi_an.jpg'
+    },
+    {
+      id: 'vtn_bamboo_compound',
+      name: 'Wind and Water Bamboo Pavilion — VTN Architects',
+      nameVi: 'Kiến Trúc Tre Gió Và Nước — KTS Võ Trọng Nghĩa',
+      type: 'ORGANIC BAMBOO SANCTUARY',
+      typeVi: 'KHÔNG GIAN KIẾN TRÚC TRE TỰ NHIÊN',
+      price: '$6,200,000',
+      priceVi: '155 TỶ VNĐ',
+      area: '1,600 m²',
+      architect: 'Vo Trong Nghia Architects',
+      architectVi: 'KTS Võ Trọng Nghĩa & VTN Architects',
+      location: 'Thu Dau Mot, Binh Duong & Saigon Outskirts',
+      locationVi: 'Thủ Dầu Một, Bình Dương & Vùng Ven Sài Gòn',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/C%C3%A0_ph%C3%AA_Gi%C3%B3_v%C3%A0_N%C6%B0%E1%BB%9Bc_%E1%BB%9F_B%C3%ACnh_D%C6%B0%C6%A1ng_%28b%C3%AAn_trong%29_%282%29.JPG',
+      localFile: 'vtn_bamboo_compound.jpg'
+    },
+    {
+      id: 'fpt_green_monolith',
+      name: 'The Green Chessboard Monolith — Hoa Lac, Hanoi',
+      nameVi: 'Tòa Tháp Ô Bàn Cờ Xanh — Hòa Lạc, Hà Nội',
+      type: 'MODERN SUSTAINABLE BIOPHILIC',
+      typeVi: 'KIẾN TRÚC SINH THÁI BÀN CỜ HIỆN ĐẠI',
+      price: '$12,500,000',
+      priceVi: '310 TỶ VNĐ',
+      area: '2,800 m²',
+      architect: 'VTN Architects',
+      architectVi: 'KTS Võ Trọng Nghĩa',
+      location: 'Hoa Lac Hi-Tech Park, Hanoi',
+      locationVi: 'Khu Công Nghệ Cao Hòa Lạc, Hà Nội',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/FPT_University_administration_building.jpg',
+      localFile: 'fpt_green_monolith.jpg'
+    }
+  ],
+  architects_avatars: [
+    {
+      id: 'avatar_vo_trong_nghia',
+      name: 'Arch. Vo Trong Nghia',
+      nameVi: 'KTS. Võ Trọng Nghĩa',
+      role: 'Principal Master • RIBA Fellow • Green Architecture Legend',
+      roleVi: 'Kiến Trúc Sư Trưởng • Huyền Thoại Kiến Trúc Tre & Xanh',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/2/23/VO_TRONG_NGHIA.jpg',
+      localFile: 'avatar_vo_trong_nghia.jpg'
+    },
+    {
+      id: 'avatar_hoang_thuc_hao',
+      name: 'Arch. Hoang Thuc Hao',
+      nameVi: 'KTS. Hoàng Thúc Hào',
+      role: 'Founder of 1+1>2 Architects • Vassilis Sgoutas Prize Laureate',
+      roleVi: 'Sáng Lập 1+1>2 Architects • Giải Thưởng Kiến Trúc Quốc Tế UIA',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/HoangThucHao.jpg',
+      localFile: 'avatar_hoang_thuc_hao.jpg'
+    },
+    {
+      id: 'avatar_vietnamese_lady_aodai',
+      name: 'Pham Thu Hang',
+      nameVi: 'Phạm Thu Hằng',
+      role: 'Head of VIP Concierge & Heritage Protocol',
+      roleVi: 'Trưởng Ban Quản Gia & Trải Nghiệm Khách Hàng Cao Cấp',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/A_Vietnamese_young_lady_in_ao_dai.jpg',
+      localFile: 'avatar_vietnamese_lady.jpg'
+    },
+    {
+      id: 'avatar_vietnamese_hostess',
+      name: 'Nguyen Mai Chi',
+      nameVi: 'Nguyễn Mai Chi',
+      role: 'Private Client Director — Vietnam & Southeast Asia',
+      roleVi: 'Giám Đốc Khách Hàng Thượng Lưu — Việt Nam & Đông Nam Á',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Vietnamese_girl_wearing_ao_dai.jpg',
+      localFile: 'avatar_mai_chi.jpg'
+    }
+  ],
+  maps: [
+    {
+      id: 'map_saigon_google_maps_style',
+      name: 'Google Maps Vietnam — Ho Chi Minh City Center & Saigon River',
+      nameVi: 'Bản Đồ Google Maps — Trung Tâm TP.HCM & Sông Sài Gòn',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Map_of_Ho_Chi_Minh_City.jpg',
+      localFile: 'map_saigon.jpg'
+    }
+  ]
+};
+
+function downloadFile(url, dest) {
+  return new Promise((resolve, reject) => {
+    const file = fs.createWriteStream(dest);
+    const getReq = (targetUrl) => {
+      https.get(targetUrl, {
+        headers: {
+          'User-Agent': 'ArkiDesignSuite/2.0 (https://github.com/TranHoaiHung; contact@arki.vn) Node/20',
+          'Accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
+        }
+      }, (res) => {
+        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+          return getReq(res.headers.location);
+        }
+        if (res.statusCode !== 200) {
+          file.close();
+          try { fs.unlinkSync(dest); } catch(e) {}
+          return reject(new Error(`HTTP ${res.statusCode} from ${targetUrl}`));
+        }
+        res.pipe(file);
+        file.on('finish', () => {
+          file.close(() => resolve(dest));
+        });
+      }).on('error', (err) => {
+        try { fs.unlinkSync(dest); } catch(e) {}
+        reject(err);
+      });
+    };
+    getReq(url);
+  });
+}
+
+async function main() {
+  console.log('🇻🇳 [ARKI VIETNAM] Đang tải kho tư liệu ảnh Kiến Trúc & Con Người Việt Nam Đích Thực...');
+  const items = [
+    ...VIETNAM_AUTHENTIC_ASSETS.estates,
+    ...VIETNAM_AUTHENTIC_ASSETS.architects_avatars,
+    ...VIETNAM_AUTHENTIC_ASSETS.maps
+  ];
+
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    const dest = path.join(ASSETS_DIR, item.localFile);
+    process.stdout.write(`[${i + 1}/${items.length}] ${item.nameVi} (${item.localFile})... `);
+    try {
+      if (fs.existsSync(dest) && fs.statSync(dest).size > 1000) {
+        const sizeKb = Math.round(fs.statSync(dest).size / 1024);
+        console.log(`✓ Đã có (${sizeKb} KB)`);
+      } else {
+        await downloadFile(item.url, dest);
+        const sizeKb = Math.round(fs.statSync(dest).size / 1024);
+        console.log(`✓ Xong (${sizeKb} KB)`);
+        await new Promise(r => setTimeout(r, 600));
+      }
+    } catch (e) {
+      console.log(`⚠️ ${e.message}`);
+    }
+  }
+
+  const catalogPath = path.join(ASSETS_DIR, 'catalog_authentic.json');
+  fs.writeFileSync(catalogPath, JSON.stringify(VIETNAM_AUTHENTIC_ASSETS, null, 2), 'utf-8');
+  console.log(`\n🎉 Hoàn thành! Đã nạp thành công bộ nhận diện văn hóa Việt Nam tại: ${catalogPath}`);
+}
+
+main().catch(console.error);

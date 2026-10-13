@@ -1,0 +1,209 @@
+{
+  "timestamp": "2026-10-12T02:47:42.957Z",
+  "totalScreens": 20,
+  "passCount": 20,
+  "passRate": "100%",
+  "averageScore": "10.0",
+  "screens": [
+    {
+      "id": "1180:1638",
+      "name": "GOLDEN / 01 - Splash & Philosophy",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_01_s01.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1653",
+      "name": "GOLDEN / 02 - Pritzker Curated Collection",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_02_s02.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1672",
+      "name": "GOLDEN / 03 - Biometric Gate & NDA",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_03_s03.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1683",
+      "name": "GOLDEN / 04 - Bento Masterpiece Feed",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_04_s04.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1722",
+      "name": "GOLDEN / 05 - Architectural Criteria Filter",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_05_s05.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1745",
+      "name": "GOLDEN / 06 - GPS Estate Radar Map",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_06_s06.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1831",
+      "name": "GOLDEN / 07 - Estate Details & Specs",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_07_s07.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1855",
+      "name": "GOLDEN / 08 - CAD 1:100 Blueprints",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_08_s08.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1865",
+      "name": "GOLDEN / 09 - 360 Spatial VR",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_09_s09.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1875",
+      "name": "GOLDEN / 10 - Heli Viewing Logistics",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_10_s10.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1885",
+      "name": "GOLDEN / 11 - VIP Pass Wallet",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_11_s11.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1897",
+      "name": "GOLDEN / 12 - Architect Consultation",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_12_s12.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1910",
+      "name": "GOLDEN / 13 - Staff Aviation Dispatch",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_13_s13.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1921",
+      "name": "GOLDEN / 14 - Staff Technical Appraisal",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_14_s14.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1930",
+      "name": "GOLDEN / 15 - Staff Smart Escrow",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_15_s15.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1939",
+      "name": "GOLDEN / 16 - Staff Co-Touring Command",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_16_s16.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1949",
+      "name": "GOLDEN / 17 - Executive Platform Governance",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_17_s17.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1969",
+      "name": "GOLDEN / 18 - Granular RBAC Permissions",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_18_s18.png",
+      "issues": []
+    },
+    {
+      "id": "1180:1978",
+      "name": "GOLDEN / 19 - Catalog Publishing Gate",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_19_s19.png",
+      "issues": []
+    },
+    {
+      "id": "1180:2014",
+      "name": "GOLDEN / 20 - Publishing Live Success",
+      "width": 393,
+      "height": 852,
+      "score": 10,
+      "status": "PASS",
+      "screenshot": "uat-screenshots/screen_20_s20.png",
+      "issues": []
+    }
+  ]
+}

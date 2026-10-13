@@ -1,0 +1,168 @@
+{
+  "estates": [
+    {
+      "id": "villa_thao_dien",
+      "name": "The Riverfront Sanctuary — Thao Dien, Saigon",
+      "nameVi": "Dinh Thự Ven Sông Sài Gòn — Thảo Điền, TP.HCM",
+      "type": "TROPICAL RIVERSIDE VILLA",
+      "typeVi": "BIỆT THỰ VEN SÔNG NHIỆT ĐỚI",
+      "price": "$5,850,000",
+      "priceVi": "145 TỶ VNĐ",
+      "area": "920 m²",
+      "architect": "Vo Trong Nghia Architects",
+      "architectVi": "KTS Võ Trọng Nghĩa & Cộng Sự",
+      "location": "Nguyen Van Huong, Thao Dien, Thu Duc City",
+      "locationVi": "Nguyễn Văn Hưởng, P. Thảo Điền, TP. Thủ Đức",
+      "url": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80",
+      "localFile": "villa_thao_dien.jpg"
+    },
+    {
+      "id": "villa_tay_ho",
+      "name": "The Lotus Glass Pavilion — Tay Ho, Hanoi",
+      "nameVi": "Biệt Thự Sen Tây Hồ — Quảng An, Hà Nội",
+      "type": "LAKEFRONT MINIMALIST ESTATE",
+      "typeVi": "DINH THỰ TỐI GIẢN MẶT HỒ",
+      "price": "$8,200,000",
+      "priceVi": "205 TỶ VNĐ",
+      "area": "1,150 m²",
+      "architect": "MIA Design Studio",
+      "architectVi": "KTS Nguyễn Hoàng Mạnh (MIA Studio)",
+      "location": "Quang An, Tay Ho District, Hanoi",
+      "locationVi": "Bán đảo Quảng An, Q. Tây Hồ, Hà Nội",
+      "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      "localFile": "villa_tay_ho.jpg"
+    },
+    {
+      "id": "resort_hoi_an",
+      "name": "Indochine Heritage Retreat — An Bang, Hoi An",
+      "nameVi": "Dinh Thự Di Sản Đông Dương — An Bàng, Hội An",
+      "type": "INDOCHINE BIOPHILIC COMPOUND",
+      "typeVi": "KHU NGHỈ DƯỠNG ĐÔNG DƯƠNG SINH THÁI",
+      "price": "$4,500,000",
+      "priceVi": "112 TỶ VNĐ",
+      "area": "1,400 m²",
+      "architect": "VTN Architects & Artisan Craft",
+      "architectVi": "KTS Nghệ Nhân Làng Gốm & Gỗ Hội An",
+      "location": "An Bang Beachside, Cam An, Hoi An",
+      "locationVi": "Ven biển An Bàng, P. Cẩm An, TP. Hội An",
+      "url": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
+      "localFile": "resort_hoi_an.jpg"
+    },
+    {
+      "id": "penthouse_thu_thiem",
+      "name": "The Grand Sky Sanctuary — Empire City, Thu Thiem",
+      "nameVi": "Sky Penthouse Đỉnh Cao — Empire City, Thủ Thiêm",
+      "type": "RIVERFRONT SKY PENTHOUSE",
+      "typeVi": "PENTHOUSE ĐỈNH THÁP VEN SÔNG",
+      "price": "$9,900,000",
+      "priceVi": "248 TỶ VNĐ",
+      "area": "680 m²",
+      "architect": "Büro Ole Scheeren & ARKI Lab",
+      "architectVi": "KTS Ole Scheeren & ARKI Lab",
+      "location": "Thu Thiem New Urban Area, District 2",
+      "locationVi": "Khu Đô Thị Mới Thủ Thiêm, TP. Thủ Đức",
+      "url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+      "localFile": "penthouse_thu_thiem.jpg"
+    },
+    {
+      "id": "villa_da_nang",
+      "name": "The Oceanfront Monolith — Son Tra, Da Nang",
+      "nameVi": "Dinh Thự Đá Bàn Cờ — Bán Đảo Sơn Trà, Đà Nẵng",
+      "type": "BRUTALIST CLIFFSIDE VILLA",
+      "typeVi": "DINH THỰ BÊ TÔNG ĐIÊU KHẮC VÁCH ĐÁ",
+      "price": "$6,400,000",
+      "priceVi": "160 TỶ VNĐ",
+      "area": "1,280 m²",
+      "architect": "Tadao Ando & Huni Architectes",
+      "architectVi": "KTS Tadao Ando & Huni Architectes",
+      "location": "Son Tra Peninsula, Da Nang City",
+      "locationVi": "Bán Đảo Sơn Trà, TP. Đà Nẵng",
+      "url": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+      "localFile": "villa_da_nang.jpg"
+    }
+  ],
+  "rooms360": [
+    {
+      "id": "living_room_atrium",
+      "name": "Grand Bamboo & Marble Atrium",
+      "nameVi": "Đại Sảnh Thông Tầng Tre & Cẩm Thạch",
+      "url": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+      "localFile": "living_room_atrium.jpg"
+    },
+    {
+      "id": "kitchen_teak_wood",
+      "name": "Indochine Teakwood & Granite Kitchen",
+      "nameVi": "Bếp Gỗ Tếch & Đá Hoa Cương Đông Dương",
+      "url": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80",
+      "localFile": "kitchen_teak_wood.jpg"
+    },
+    {
+      "id": "master_bedroom_zen",
+      "name": "Zen Sanctuary Master Bedroom",
+      "nameVi": "Phòng Ngủ Master Thiền Tĩnh Tại",
+      "url": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80",
+      "localFile": "master_bedroom_zen.jpg"
+    },
+    {
+      "id": "sunset_infinity_pool",
+      "name": "Sunset Tropical Infinity Pool",
+      "nameVi": "Hồ Bơi Vô Cực Hoàng Hôn Nhiệt Đới",
+      "url": "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=80",
+      "localFile": "sunset_infinity_pool.jpg"
+    }
+  ],
+  "avatars": [
+    {
+      "id": "avatar_architect_male",
+      "name": "Arch. Dang Viet Dung",
+      "nameVi": "KTS. Đặng Việt Dũng",
+      "role": "Principal Architect • Pritzker Fellow",
+      "roleVi": "Kiến Trúc Sư Trưởng • Thành viên Pritzker",
+      "url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "localFile": "avatar_architect_male.jpg"
+    },
+    {
+      "id": "avatar_designer_female",
+      "name": "Le Tran Mai Chi",
+      "nameVi": "Lê Trần Mai Chi",
+      "role": "Senior Interior Director",
+      "roleVi": "Giám Đốc Thiết Kế Nội Thất",
+      "url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80",
+      "localFile": "avatar_designer_female.jpg"
+    },
+    {
+      "id": "avatar_broker_male",
+      "name": "Nguyen Hoang Nam",
+      "nameVi": "Nguyễn Hoàng Nam",
+      "role": "Private Estate Partner",
+      "roleVi": "Đối Tác Quản Lý Bất Động Sản VIP",
+      "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "localFile": "avatar_broker_male.jpg"
+    },
+    {
+      "id": "avatar_concierge_female",
+      "name": "Pham Thu Hang",
+      "nameVi": "Phạm Thu Hằng",
+      "role": "Head of VIP Butler & Concierge",
+      "roleVi": "Trưởng Ban Quản Gia & Trải Nghiệm Khách Hàng",
+      "url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
+      "localFile": "avatar_concierge_female.jpg"
+    }
+  ],
+  "maps": [
+    {
+      "id": "map_google_vietnam_thu_thiem",
+      "name": "Google Maps — Thu Thiem Peninsula, Saigon River",
+      "nameVi": "Bản Đồ Google Maps — Bán Đảo Thủ Thiêm, Sông Sài Gòn",
+      "url": "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80",
+      "localFile": "map_thu_thiem.jpg"
+    },
+    {
+      "id": "map_google_vietnam_tay_ho",
+      "name": "Google Maps — Tay Ho Lake & Red River, Hanoi",
+      "nameVi": "Bản Đồ Google Maps — Hồ Tây & Sông Hồng, Hà Nội",
+      "url": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=80",
+      "localFile": "map_tay_ho.jpg"
+    }
+  ]
+}

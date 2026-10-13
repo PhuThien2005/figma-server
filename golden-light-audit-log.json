@@ -1,0 +1,164 @@
+[
+  {
+    "num": "01",
+    "name": "GOLDEN / 01 - Splash & Philosophy",
+    "nodeId": "1179:1378",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_01.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "02",
+    "name": "GOLDEN / 02 - Pritzker Curated Collection",
+    "nodeId": "1179:1386",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_02.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "03",
+    "name": "GOLDEN / 03 - Biometric Gate & NDA",
+    "nodeId": "1179:1394",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_03.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "04",
+    "name": "GOLDEN / 04 - Bento Masterpiece Feed",
+    "nodeId": "1179:1405",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_04.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "05",
+    "name": "GOLDEN / 05 - Architectural Criteria Filter",
+    "nodeId": "1179:1446",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_05.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "06",
+    "name": "GOLDEN / 06 - GPS Estate Radar Map",
+    "nodeId": "1179:1462",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_06.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "07",
+    "name": "GOLDEN / 07 - Estate Details & Specs",
+    "nodeId": "1179:1471",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_07.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "08",
+    "name": "GOLDEN / 08 - CAD 1:100 Blueprints",
+    "nodeId": "1179:1497",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_08.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "09",
+    "name": "GOLDEN / 09 - 360 Spatial VR",
+    "nodeId": "1179:1506",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_09.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "10",
+    "name": "GOLDEN / 10 - Heli Viewing Logistics",
+    "nodeId": "1179:1513",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_10.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "11",
+    "name": "GOLDEN / 11 - VIP Pass Wallet",
+    "nodeId": "1179:1523",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_11.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "12",
+    "name": "GOLDEN / 12 - Architect Consultation",
+    "nodeId": "1179:1532",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_12.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "13",
+    "name": "GOLDEN / 13 - Staff Aviation Dispatch",
+    "nodeId": "1179:1542",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_13.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "14",
+    "name": "GOLDEN / 14 - Staff Technical Appraisal",
+    "nodeId": "1179:1552",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_14.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "15",
+    "name": "GOLDEN / 15 - Staff Smart Escrow",
+    "nodeId": "1179:1560",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_15.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "16",
+    "name": "GOLDEN / 16 - Executive Governance",
+    "nodeId": "1179:1568",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_16.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "17",
+    "name": "GOLDEN / 17 - RBAC Permissions",
+    "nodeId": "1179:1584",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_17.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "18",
+    "name": "GOLDEN / 18 - Listing Catalog Approval",
+    "nodeId": "1179:1590",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\light_golden_18.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  }
+]

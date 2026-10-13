@@ -93,6 +93,15 @@ app.get('/health', (req, res) => {
   });
 });
 
+app.post('/clear-pending', (req, res) => {
+  for (const [id, reqObj] of pendingRequests.entries()) {
+    clearTimeout(reqObj.timeoutId);
+    try { reqObj.reject(new Error('Pending requests manually cleared')); } catch(e) {}
+  }
+  pendingRequests.clear();
+  res.json({ success: true, message: 'Cleared all pending requests' });
+});
+
 app.get('/status', (req, res) => {
   const isConnected = !!(activeFigmaSocket && activeFigmaSocket.readyState === WebSocket.OPEN);
   res.json({

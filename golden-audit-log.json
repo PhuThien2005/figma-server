@@ -1,0 +1,164 @@
+[
+  {
+    "num": "01",
+    "name": "GOLDEN / 01 - Splash & Triết Lý",
+    "nodeId": "1170:527",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_01.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "02",
+    "name": "GOLDEN / 02 - Tuyển Chọn Pritzker",
+    "nodeId": "1170:535",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_02.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "03",
+    "name": "GOLDEN / 03 - Sinh Trắc & NDA",
+    "nodeId": "1170:543",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_03.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "04",
+    "name": "GOLDEN / 04 - Bảng Tin Bento Grid",
+    "nodeId": "1170:554",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_04.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "05",
+    "name": "GOLDEN / 05 - Bộ Lọc Chuyên Sâu",
+    "nodeId": "1170:599",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_05.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "06",
+    "name": "GOLDEN / 06 - Bản Đồ Định Vị GPS",
+    "nodeId": "1170:615",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_06.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "07",
+    "name": "GOLDEN / 07 - Chi Tiết Dinh Thự",
+    "nodeId": "1170:624",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_07.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "08",
+    "name": "GOLDEN / 08 - Bản Vẽ CAD 1:100",
+    "nodeId": "1171:650",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_08.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "09",
+    "name": "GOLDEN / 09 - Không Gian 360° VR",
+    "nodeId": "1171:659",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_09.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "10",
+    "name": "GOLDEN / 10 - Lịch Hẹn & Trực Thăng",
+    "nodeId": "1171:666",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_10.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "11",
+    "name": "GOLDEN / 11 - Thẻ Vé VIP PASS",
+    "nodeId": "1171:680",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_11.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "12",
+    "name": "GOLDEN / 12 - Tư Vấn Trực Tiếp KTS",
+    "nodeId": "1171:693",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_12.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "13",
+    "name": "GOLDEN / 13 - Staff Điều Phối Bay",
+    "nodeId": "1171:704",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_13.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "14",
+    "name": "GOLDEN / 14 - Staff KTS Thẩm Định",
+    "nodeId": "1171:714",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_14.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "15",
+    "name": "GOLDEN / 15 - Staff Kiểm Soát Escrow",
+    "nodeId": "1171:724",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_15.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "16",
+    "name": "GOLDEN / 16 - Admin Điều Hành",
+    "nodeId": "1171:734",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_16.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "17",
+    "name": "GOLDEN / 17 - Admin Phân Quyền RBAC",
+    "nodeId": "1171:750",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_17.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  },
+  {
+    "num": "18",
+    "name": "GOLDEN / 18 - Admin Duyệt Niêm Yết",
+    "nodeId": "1171:767",
+    "path": "C:\\DPTN\\figma-server\\uat-screenshots\\golden_18.png",
+    "width": 393,
+    "height": 852,
+    "status": "PASS"
+  }
+]

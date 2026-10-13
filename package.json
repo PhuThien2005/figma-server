@@ -8,7 +8,9 @@
     "mcp": "node bridge-server/src/mcp-server.js",
     "test": "node tests/test-server.js",
     "demo": "node scripts/demo-onboarding-flow.js",
-    "status": "node scripts/test-connection.js"
+    "status": "node scripts/test-connection.js",
+    "deploy": "tools\\node.exe scripts/deploy-112-screens.js",
+    "pipeline": "tools\\node.exe scripts/run-vietnam-pipeline.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",

@@ -206,19 +206,17 @@ async function main() {
   ];
 
   let capturedSuccess = 0;
+  const outDir = path.resolve('uat-screenshots');
+  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+
   for (const t of captureTargets) {
     if (t.node) {
-      const outPath = `C:/figma/assets/screenshots/${t.name}`;
+      const outPath = path.join(outDir, t.name);
       process.stdout.write(`   📷 Đang xuất khung [${t.node.name.slice(0, 32)}] -> ${t.name}... `);
       const ok = await captureFrame(t.node.id, outPath);
       if (ok) {
         capturedSuccess++;
         console.log('✅ OK');
-        // Copy to brain artifact dir as well
-        const brainDir = 'C:/Users/dptn/.gemini/antigravity-cli/brain/5d2cfe67-d160-4b44-a465-025408fe3a6e';
-        try {
-          fs.copyFileSync(outPath, path.join(brainDir, t.name));
-        } catch (e) {}
       } else {
         console.log('⚠️ Failed');
       }
@@ -244,7 +242,8 @@ async function main() {
   console.log('═══════════════════════════════════════════════════════════════════════\n');
 
   // Save results JSON
-  fs.writeFileSync('C:/figma/scratch/uat-test-results.json', JSON.stringify({
+  const resultJsonPath = path.resolve('uat-test-results.json');
+  fs.writeFileSync(resultJsonPath, JSON.stringify({
     timestamp: new Date().toISOString(),
     totalScreens: results.totalScreens,
     lightScreens: results.lightScreens,
@@ -254,7 +253,7 @@ async function main() {
     testCases: results.testCases
   }, null, 2));
 
-  console.log('📁 Dữ liệu kết quả kiểm thử đã được lưu vào scratch/uat-test-results.json');
+  console.log(`📁 Dữ liệu kết quả kiểm thử đã được lưu vào: ${resultJsonPath}`);
 }
 
 main().catch(console.error);

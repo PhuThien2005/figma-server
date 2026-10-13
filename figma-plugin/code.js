@@ -9,33 +9,48 @@ function logToUI(message, level = 'info') {
   figma.ui.postMessage({ type: 'LOG', message, level });
 }
 
-// Helper to parse color hex or RGB object
+// Helper to parse color hex or RGB object with alpha
 function parseColor(color) {
-  if (!color) return { r: 1, g: 1, b: 1 };
+  if (!color) return { r: 1, g: 1, b: 1, a: 1 };
   if (typeof color === 'object' && 'r' in color && 'g' in color && 'b' in color) {
     // Normalize to 0..1 if values > 1
     const r = color.r > 1 ? color.r / 255 : color.r;
     const g = color.g > 1 ? color.g / 255 : color.g;
     const b = color.b > 1 ? color.b / 255 : color.b;
-    return { r, g, b };
+    const a = ('a' in color && color.a !== undefined) ? (color.a > 1 ? color.a / 255 : color.a) : (('opacity' in color) ? color.opacity : 1);
+    return { r, g, b, a };
   }
   if (typeof color === 'string') {
     let hex = color.replace(/^#/, '');
     if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+    if (hex.length === 8) {
+      const num = parseInt(hex.substring(0, 6), 16);
+      const alpha = parseInt(hex.substring(6, 8), 16) / 255;
+      return {
+        r: ((num >> 16) & 255) / 255,
+        g: ((num >> 8) & 255) / 255,
+        b: (num & 255) / 255,
+        a: alpha
+      };
+    }
     if (hex.length >= 6) {
       const num = parseInt(hex.substring(0, 6), 16);
       return {
         r: ((num >> 16) & 255) / 255,
         g: ((num >> 8) & 255) / 255,
-        b: (num & 255) / 255
+        b: (num & 255) / 255,
+        a: 1
       };
     }
   }
-  return { r: 1, g: 1, b: 1 };
+  return { r: 1, g: 1, b: 1, a: 1 };
 }
 
 // Safe font loader with in-memory cache
 const loadedFontsCache = new Set();
+
+// Persistent node reference cache across batches
+const persistentRefMap = {};
 
 async function ensureFont(family = 'Inter', style = 'Regular') {
   const key = `${family}-${style}`;
@@ -67,9 +82,9 @@ async function ensureFont(family = 'Inter', style = 'Regular') {
 // Resolve node reference (support direct ID or $alias from batch)
 function resolveNodeId(idOrRef, refMap) {
   if (!idOrRef) return null;
-  if (typeof idOrRef === 'string' && idOrRef.startsWith('$') && refMap) {
+  if (typeof idOrRef === 'string' && idOrRef.startsWith('$')) {
     const key = idOrRef.substring(1);
-    return refMap[key] || idOrRef;
+    return (refMap && refMap[key]) ? refMap[key] : null;
   }
   return idOrRef;
 }
@@ -103,7 +118,10 @@ async function getNode(id) {
 // Safe image fill loader with timeout protection
 async function applyImageFill(node, imageUrl, fallbackColor = null) {
   if (fallbackColor) {
-    node.fills = [{ type: 'SOLID', color: parseColor(fallbackColor) }];
+    const c = parseColor(fallbackColor);
+    const paint = { type: 'SOLID', color: { r: c.r, g: c.g, b: c.b } };
+    if (c.a !== undefined && c.a < 1) paint.opacity = c.a;
+    node.fills = [paint];
   } else {
     node.fills = [{ type: 'SOLID', color: { r: 0.1, g: 0.15, b: 0.25 } }];
   }
@@ -1159,6 +1177,13 @@ async function executeAction(action, params = {}, refMap = {}) {
         textNode.textAlignHorizontal = params.textAlignHorizontal; // 'LEFT', 'CENTER', 'RIGHT', 'JUSTIFIED'
       }
 
+      if (params.width) {
+        try {
+          textNode.textAutoResize = 'HEIGHT';
+          textNode.resize(params.width, textNode.height);
+        } catch (e) {}
+      }
+
       if (params.x !== undefined && params.y !== undefined) {
         textNode.x = params.x;
         textNode.y = params.y;
@@ -1686,7 +1711,7 @@ async function executeAction(action, params = {}, refMap = {}) {
     case 'BATCH_EXECUTE': {
       const steps = params.steps || [];
       const results = [];
-      const batchRefMap = { ...refMap };
+      const batchRefMap = { ...persistentRefMap, ...refMap, ...(params.refMap || {}) };
 
       for (let i = 0; i < steps.length; i++) {
         const step = steps[i];
@@ -1695,6 +1720,7 @@ async function executeAction(action, params = {}, refMap = {}) {
           results.push({ index: i, action: step.action, success: true, result: res });
           if (step.ref && res && res.id) {
             batchRefMap[step.ref] = res.id;
+            persistentRefMap[step.ref] = res.id;
           }
         } catch (stepErr) {
           results.push({ index: i, action: step.action, success: false, error: stepErr.message });
@@ -1705,6 +1731,11 @@ async function executeAction(action, params = {}, refMap = {}) {
       }
 
       return { status: 'batch_completed', stepsCount: steps.length, results, refMap: batchRefMap };
+    }
+
+    case 'CLEAR_REF_MAP': {
+      Object.keys(persistentRefMap).forEach(k => delete persistentRefMap[k]);
+      return { status: 'ref_map_cleared' };
     }
 
     case 'EXPORT_FRAME': {
@@ -1780,6 +1811,74 @@ async function executeAction(action, params = {}, refMap = {}) {
         figma.currentPage.children[0].remove();
       }
       return { status: 'cleared', removedCount: count };
+    }
+
+    case 'SETUP_DESIGN_TOKENS_VARIABLES': {
+      if (!figma.variables) {
+        return { status: 'skipped', reason: 'figma.variables API not supported' };
+      }
+      try {
+        const existing = 'getLocalVariableCollectionsAsync' in figma.variables
+          ? await figma.variables.getLocalVariableCollectionsAsync()
+          : (figma.variables.getLocalVariableCollections ? figma.variables.getLocalVariableCollections() : []);
+        let collection = existing.find(c => c.name === 'ARKI Tokens');
+        if (!collection) {
+          collection = figma.variables.createVariableCollection('ARKI Tokens');
+        }
+        const defaultModeId = collection.defaultModeId;
+
+        const colorTokens = [
+          { name: 'color/bg-dark', color: { r: 0.043, g: 0.047, b: 0.055 } },
+          { name: 'color/bg-card', color: { r: 0.075, g: 0.078, b: 0.094 } },
+          { name: 'color/bg-surface', color: { r: 0.086, g: 0.094, b: 0.122 } },
+          { name: 'color/border', color: { r: 0.141, g: 0.149, b: 0.180 } },
+          { name: 'color/text-primary', color: { r: 0.957, g: 0.957, b: 0.965 } },
+          { name: 'color/text-secondary', color: { r: 0.631, g: 0.631, b: 0.667 } },
+          { name: 'color/text-muted', color: { r: 0.443, g: 0.443, b: 0.478 } },
+          { name: 'color/accent-gold', color: { r: 0.773, g: 0.659, b: 0.502 } },
+          { name: 'color/accent-emerald', color: { r: 0.063, g: 0.725, b: 0.506 } },
+          { name: 'color/btn-primary-bg', color: { r: 0.957, g: 0.957, b: 0.965 } },
+          { name: 'color/btn-primary-text', color: { r: 0.043, g: 0.047, b: 0.055 } }
+        ];
+
+        const floatTokens = [
+          { name: 'spacing/xs', value: 8 },
+          { name: 'spacing/sm', value: 12 },
+          { name: 'spacing/md', value: 16 },
+          { name: 'spacing/lg', value: 24 },
+          { name: 'spacing/xl', value: 32 },
+          { name: 'radius/card', value: 16 },
+          { name: 'radius/btn', value: 10 },
+          { name: 'radius/screen', value: 44 }
+        ];
+
+        const allVars = 'getLocalVariablesAsync' in figma.variables
+          ? await figma.variables.getLocalVariablesAsync()
+          : (figma.variables.getLocalVariables ? figma.variables.getLocalVariables() : []);
+        let createdCount = 0;
+
+        for (const c of colorTokens) {
+          let v = allVars.find(x => x.name === c.name && x.variableCollectionId === collection.id);
+          if (!v) {
+            v = figma.variables.createVariable(c.name, collection.id, 'COLOR');
+            createdCount++;
+          }
+          v.setValueForMode(defaultModeId, { ...c.color, a: 1 });
+        }
+
+        for (const f of floatTokens) {
+          let v = allVars.find(x => x.name === f.name && x.variableCollectionId === collection.id);
+          if (!v) {
+            v = figma.variables.createVariable(f.name, collection.id, 'FLOAT');
+            createdCount++;
+          }
+          v.setValueForMode(defaultModeId, f.value);
+        }
+
+        return { status: 'variables_created', collectionName: 'ARKI Tokens', createdCount, totalColors: colorTokens.length, totalFloats: floatTokens.length };
+      } catch (varErr) {
+        return { status: 'error', error: varErr.message };
+      }
     }
 
     default:

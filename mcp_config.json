@@ -1,11 +1,15 @@
 {
   "mcpServers": {
     "figma-bridge": {
-      "command": "node",
-      "args": ["C:/figma/bridge-server/src/mcp-server.js"],
+      "command": "C:/DPTN/figma-server/tools/node.exe",
+      "args": ["C:/DPTN/figma-server/bridge-server/src/mcp-server.js"],
       "env": {
         "BRIDGE_URL": "http://localhost:8765"
       }
+    },
+    "figma-ui-mcp": {
+      "command": "C:/DPTN/figma-server/tools/node.exe",
+      "args": ["C:/DPTN/figma-server/figma-ui-mcp/server/index.js"]
     }
   }
 }
