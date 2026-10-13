@@ -97,13 +97,15 @@ Tất cả các thành phần trên Canvas đều được liên kết trực ti
 * **Mục đích:** Hướng dẫn trực quan cách xoay lật góc nhìn không gian 360° và chế độ kính thực tế ảo Apple Vision Pro / Meta Quest.
 * **Hotspots:** Chế độ Gyroscope, Nút thử nghiệm xoay 360 mini, Nút bỏ qua.
 
-#### `SCR-004: Master Architect Connection Intro`
+#### `SCR-004: Kết Nối Kiến Trúc Sư Trưởng`
 * **Mục đích:** Tuyên ngôn về quyền tác giả - Kết nối trực tiếp chủ nhân tinh hoa với các Kiến trúc sư trưởng.
-* **Hotspots:** Thẻ KTS Võ Trọng Nghĩa, Thẻ KTS Hoàng Thúc Hào, Nút tìm hiểu thêm.
+* **Đặc tả hình ảnh / Avatar:** Sử dụng huy hiệu Monogram tối giản tiêu chuẩn (`VTN` - KTS Võ Trọng Nghĩa, `HTH` - KTS Hoàng Thúc Hào) trên nền xám thanh lịch `#F4F4F6`, viền mảnh `#E4E4E7`, gắn nhãn chức danh `CHỦ TRÌ THIẾT KẾ` / `DI SẢN BẢN ĐỊA` thay vì chèn ảnh người thật tùy tiện.
+* **Hotspots:** Thẻ KTS Võ Trọng Nghĩa, Thẻ KTS Hoàng Thúc Hào, Nút [ Xem Tác Phẩm → ], Nút [ Khám Phá 360° ], 4 Tab Thanh Điều Hướng.
 
-#### `SCR-005: VIP Concierge Access Brief`
-* **Mục đích:** Giới thiệu đội ngũ quản gia và chuyên gia định giá độc lập bảo mật thông tin.
-* **Hotspots:** Nút kết nối Concierge 24/7, Nút điều khoản bảo mật.
+#### `SCR-005: Dịch Vụ Quản Gia VIP`
+* **Mục đích:** Giới thiệu dịch vụ quản gia cao cấp và chuyên gia tư vấn bảo mật thông tin.
+* **Đặc tả hình ảnh / Avatar:** Sử dụng huy hiệu Quản Gia VIP chuẩn (`VIP` màu vàng Champagne `#C5A880` trên nền đen thạch anh `#09090B`) kèm trạng thái `● TRỰC TUYẾN` xanh ngọc bích, không sử dụng ảnh người thật.
+* **Hotspots:** Nút kết nối Quản gia 24/7, Ô nhập mã định danh khách hàng, Nút điều khoản bảo mật, Nút [ Khám Phá 360° ].
 
 #### `SCR-006: Investor Passcode Entry`
 * **Mục đích:** Nhập mã bảo mật dành riêng cho khách hàng VIP nhận thư mời riêng.
@@ -372,20 +374,23 @@ Tất cả các thành phần trên Canvas đều được liên kết trực ti
 
 ### PHÂN HỆ 8: CÀI ĐẶT CÁ NHÂN HÓA, CHẾ ĐỘ & ĐỒNG BỘ (`SCR-096` → `SCR-112`)
 
-#### `SCR-101: Client Profile & Private Vault`
-* **Mục đích:** Trung tâm quản lý tài khoản định danh thượng lưu, két sắt số lưu trữ hợp đồng và cài đặt ứng dụng.
+#### `SCR-101: Hồ Sơ Nhà Đầu Tư Thượng Lưu`
+* **Mục đích:** Trung tâm quản lý tài khoản định danh thượng lưu, cấu trúc pháp lý nắm giữ tài sản và cài đặt ứng dụng.
 * **Kích thước:** `393 × 852 px`.
 * **Nền:** Thuần trắng `#FFFFFF`.
 * **Thành phần:**
-  - Header: Tiêu đề `HỒ SƠ GIA TỘC`, phụ đề `QUẢN TRỊ TRẢI NGHIỆM ARKI`.
-  - Thẻ định danh: Ảnh đại diện người dùng, Tên chủ nhân tinh hoa, Huy hiệu `HỘI VIÊN BẠCH KIM (PLATINUM VIP)`.
-  - Khung cài đặt nhanh:
-    - Nút gạt giao diện: `[ Sáng (Mặc định) | Tối ]`.
-    - Nút chọn ngôn ngữ: `[ 🇻🇳 Tiếng Việt (Mặc định) | 🇬🇧 English ]`.
-    - Xác thực sinh trắc học FaceID: Trạng thái `Đã Bật`.
-  - Danh mục quản lý: `Dinh Thự Đã Lưu (3)`, `Lịch Hẹn Khảo Sát (1)`, `Hợp Đồng Đã Ký (2)`.
-  - Component Instance: `cmp/bottom-dock` (Tab Hồ Sơ kích hoạt).
-* **Hotspots (8 Hotspots):** Nút chỉnh sửa hồ sơ, Nút gạt Sáng/Tối, Nút gạt ngôn ngữ, Mục Dinh thự đã lưu, Mục Lịch hẹn, Mục Hợp đồng, Nút liên hệ cố vấn riêng, Dock tabs.
+  - Header: Tiêu đề `Hồ Sơ`, phụ đề `HỒ SƠ KHÁCH HÀNG & QUỐC TỊCH ĐẦU TƯ`.
+  - Thẻ định danh: Huy hiệu Avatar mặc định tiêu chuẩn (`ARKI` / `CHỦ THẺ` / `★ HẠNG SEN`) trên nền xám `#F4F4F6`, không dùng ảnh người thật.
+  - Tên chủ nhân tinh hoa: `Lord Alexander Sterling`.
+  - Thông tin quỹ: `Quỹ Gia Tộc Sterling (Singapore / Zurich) • Hạng Thành Viên: Hoa Sen Vàng (#0089) • Nơi Cư Trú Chính: Dinh Thự Ven Sông Thảo Điền`.
+  - Huy hiệu xác thực: `✓ Nhà Đầu Tư Đạt Chuẩn Hiệp Định DTA`.
+  - Khung Cấu Trúc Pháp Lý & Thẩm Quyền Tài Phán:
+    - Pháp nhân nắm giữ tài sản chính: `Sterling Heritage Vietnam SPV Ltd (BVI)`.
+    - Tình trạng cư trú thuế: `Singapore Family Office (Section 13O Scheme)`.
+    - Thị thực & Miễn trừ nhập cảnh: `Thẻ Tạm Trú Nhà Đầu Tư Vàng 5 Năm (ĐT1)`.
+    - Lưu ký ngân hàng: `Standard Chartered Private Bank Singapore`.
+  - Component Instance: `cmp/btn-primary` (`[ ◎ Khám Phá 360° ]`), `cmp/bottom-dock` (Tab Hồ Sơ).
+* **Hotspots (9 Hotspots):** Nút Back, Nút gạt ngôn ngữ, Thẻ định danh, Thẻ pháp lý, Nút CTA chính, 4 Tab Dock.
 
 ---
 
